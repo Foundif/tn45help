@@ -33,6 +33,8 @@
   --color-ring: var(--ring);
   --color-whatsapp: var(--whatsapp);
   --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-leaf: var(--leaf);
+  --color-leaf-foreground: var(--leaf-foreground);
 
   --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
@@ -41,48 +43,53 @@
 :root {
   --radius: 0.875rem;
 
-  /* Brand: Navy + Yellow + White */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.18 0.06 260);
+  /* Logo palette: warm yellow plate, navy ink, leafy green, cream backdrop */
+  --background: oklch(0.985 0.025 95);            /* warm cream */
+  --foreground: oklch(0.22 0.07 260);             /* deep navy ink */
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.06 260);
+  --card-foreground: oklch(0.22 0.07 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.06 260);
+  --popover-foreground: oklch(0.22 0.07 260);
 
-  /* Navy */
-  --primary: oklch(0.26 0.09 260);
-  --primary-foreground: oklch(0.99 0 0);
+  /* Navy = primary (text on yellow) */
+  --primary: oklch(0.24 0.08 260);
+  --primary-foreground: oklch(0.99 0.02 95);
 
-  /* Yellow */
-  --secondary: oklch(0.88 0.17 95);
-  --secondary-foreground: oklch(0.18 0.06 260);
+  /* Plate yellow */
+  --secondary: oklch(0.89 0.17 92);
+  --secondary-foreground: oklch(0.22 0.07 260);
 
-  --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.45 0.03 260);
+  --muted: oklch(0.955 0.03 92);
+  --muted-foreground: oklch(0.45 0.04 260);
 
-  --accent: oklch(0.88 0.17 95);
-  --accent-foreground: oklch(0.18 0.06 260);
+  --accent: oklch(0.89 0.17 92);
+  --accent-foreground: oklch(0.22 0.07 260);
 
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.92 0.01 255);
-  --input: oklch(0.92 0.01 255);
-  --ring: oklch(0.26 0.09 260);
+  --border: oklch(0.88 0.04 88);
+  --input: oklch(0.88 0.04 88);
+  --ring: oklch(0.24 0.08 260);
 
   --whatsapp: oklch(0.66 0.17 145);
   --whatsapp-foreground: oklch(0.99 0 0);
 
-  /* Effects */
-  --gradient-hero: linear-gradient(135deg, oklch(0.22 0.09 260) 0%, oklch(0.32 0.10 260) 100%);
-  --gradient-yellow: linear-gradient(135deg, oklch(0.92 0.17 95) 0%, oklch(0.84 0.18 80) 100%);
-  --gradient-radial: radial-gradient(circle at 30% 20%, oklch(0.88 0.17 95 / 0.15), transparent 60%);
+  /* Leafy green from the palm icon */
+  --leaf: oklch(0.5 0.12 150);
+  --leaf-foreground: oklch(0.99 0 0);
 
-  --shadow-card: 0 4px 24px -8px oklch(0.18 0.06 260 / 0.12);
-  --shadow-elevated: 0 20px 50px -20px oklch(0.18 0.06 260 / 0.25);
-  --shadow-yellow: 0 12px 30px -8px oklch(0.84 0.18 80 / 0.45);
-  --shadow-navy: 0 12px 30px -8px oklch(0.26 0.09 260 / 0.35);
+  /* Brand effects */
+  --gradient-hero: linear-gradient(160deg, oklch(0.95 0.10 95) 0%, oklch(0.89 0.17 92) 55%, oklch(0.82 0.18 85) 100%);
+  --gradient-plate: linear-gradient(135deg, oklch(0.92 0.17 95) 0%, oklch(0.84 0.18 82) 100%);
+  --gradient-radial: radial-gradient(circle at 80% 10%, oklch(0.24 0.08 260 / 0.10), transparent 55%);
+  --gradient-cream: linear-gradient(180deg, oklch(0.985 0.025 95) 0%, oklch(0.97 0.05 92) 100%);
+
+  --shadow-card: 0 6px 28px -10px oklch(0.22 0.07 260 / 0.18);
+  --shadow-elevated: 0 24px 60px -22px oklch(0.22 0.07 260 / 0.32);
+  --shadow-yellow: 0 14px 32px -10px oklch(0.84 0.18 82 / 0.55);
+  --shadow-navy: 0 14px 32px -10px oklch(0.22 0.07 260 / 0.45);
 }
 
 @layer base {
@@ -99,33 +106,43 @@
 
 @layer utilities {
   .bg-gradient-hero { background: var(--gradient-hero); }
-  .bg-gradient-yellow { background: var(--gradient-yellow); }
+  .bg-gradient-plate { background: var(--gradient-plate); }
   .bg-gradient-radial { background: var(--gradient-radial); }
+  .bg-gradient-cream { background: var(--gradient-cream); }
   .shadow-card { box-shadow: var(--shadow-card); }
   .shadow-elevated { box-shadow: var(--shadow-elevated); }
   .shadow-yellow { box-shadow: var(--shadow-yellow); }
   .shadow-navy { box-shadow: var(--shadow-navy); }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
+  .animate-float { animation: float 4s ease-in-out infinite; }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    50% { transform: translateY(-8px); }
   }
-  .animate-pulse-ring {
-    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
+  .animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
   @keyframes pulse-ring {
     0% { box-shadow: 0 0 0 0 oklch(0.66 0.17 145 / 0.5); }
     70% { box-shadow: 0 0 0 16px oklch(0.66 0.17 145 / 0); }
     100% { box-shadow: 0 0 0 0 oklch(0.66 0.17 145 / 0); }
   }
-  .animate-fade-up {
-    animation: fade-up 0.6s ease-out both;
-  }
+  .animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-in { animation: slide-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  @keyframes slide-in {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  .animate-slide-out { animation: slide-out 0.35s cubic-bezier(0.4, 0, 1, 1) both; }
+  @keyframes slide-out {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+  }
+  .animate-fade-bg { animation: fade-bg 0.35s ease-out both; }
+  @keyframes fade-bg {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
