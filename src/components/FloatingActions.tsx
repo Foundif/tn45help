@@ -1,4 +1,5 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export const WHATSAPP = "919655451299";
 export const PHONE = "+919486642242";
@@ -24,7 +25,7 @@ export function FloatingActions() {
         aria-label="WhatsApp TN45"
         className="grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-elevated animate-pulse-ring transition hover:scale-105"
       >
-        <MessageCircle className="h-7 w-7" />
+        <WhatsAppIcon className="h-7 w-7" />
       </a>
     </div>
   );

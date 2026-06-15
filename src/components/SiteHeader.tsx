@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone, MessageCircle, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import logo from "@/assets/tn45-logo.asset.json";
 import { waLink, PHONE } from "./FloatingActions";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -44,8 +45,8 @@ export function SiteHeader() {
             : "bg-background/60 backdrop-blur-md"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2.5 sm:px-6">
-          <a href="#home" aria-label="TN45 Tamilnadu Travel Company" className="flex items-center">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6">
+          <a href="#home" aria-label="TN45 Tamilnadu Travel Company" className="flex shrink-0 items-center">
             <img
               src={logo.url}
               alt="TN45 Tamilnadu Travel Company"
@@ -53,11 +54,24 @@ export function SiteHeader() {
             />
           </a>
 
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="rounded-full px-3 py-2 text-sm font-semibold text-primary/80 transition hover:bg-muted hover:text-primary"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
           <div className="flex items-center gap-2">
             <a
               href={`tel:${PHONE}`}
               aria-label="Call"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition"
+              className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition"
             >
               <Phone className="h-4 w-4" /> Call
             </a>
@@ -65,14 +79,14 @@ export function SiteHeader() {
               href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow-navy hover:brightness-110 transition"
+              className="hidden md:inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2 text-sm font-bold text-whatsapp-foreground shadow-card hover:brightness-110 transition"
             >
-              <MessageCircle className="h-4 w-4" /> Book Now
+              <WhatsAppIcon className="h-4 w-4" /> Book Now
             </a>
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="grid h-11 w-11 place-items-center rounded-xl bg-primary text-primary-foreground shadow-navy transition hover:brightness-110"
+              className="grid h-11 w-11 place-items-center rounded-xl bg-primary text-primary-foreground shadow-navy transition hover:brightness-110 lg:hidden"
             >
               <Menu className="h-5 w-5" />
             </button>
@@ -80,9 +94,9 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Drawer */}
+      {/* Drawer (mobile/tablet only) */}
       {open && (
-        <div className="fixed inset-0 z-50">
+        <div className="fixed inset-0 z-50 lg:hidden">
           <button
             aria-label="Close menu"
             onClick={closeDrawer}
@@ -128,7 +142,7 @@ export function SiteHeader() {
                 onClick={closeDrawer}
                 className="flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3.5 text-sm font-bold text-whatsapp-foreground shadow-card"
               >
-                <MessageCircle className="h-4 w-4" /> WhatsApp Booking
+                <WhatsAppIcon className="h-4 w-4" /> WhatsApp Booking
               </a>
               <a
                 href={`tel:${PHONE}`}
@@ -138,7 +152,7 @@ export function SiteHeader() {
                 <Phone className="h-4 w-4" /> Call +91 94866 42242
               </a>
               <p className="pt-2 text-center text-xs text-muted-foreground">
-                Mannarpuram, Trichy · 24/7 Inquiry
+                Mannarpuram, Trichy · 24/7 Inquiry Support
               </p>
             </div>
           </aside>
