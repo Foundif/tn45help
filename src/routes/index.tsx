@@ -362,20 +362,10 @@ function HomePage() {
             <span className="text-xs font-bold uppercase tracking-widest text-leaf">Testimonials</span>
             <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">What Our Customers Say</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure key={t.n} className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-card">
-                <div className="flex gap-1 text-secondary">
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                </div>
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-primary">"{t.q}"</blockquote>
-                <figcaption className="mt-5 border-t border-border pt-4">
-                  <div className="text-sm font-bold text-primary">{t.n}</div>
-                  <div className="text-xs text-muted-foreground">{t.c}</div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+        </div>
+        <div className="mt-12">
+          <TestimonialsMarquee items={testimonials} />
+        </div>
         </div>
       </section>
 
