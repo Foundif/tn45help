@@ -18,6 +18,7 @@ import svcOutstation from "@/assets/svc-outstation.jpg";
 import { SiteHeader } from "@/components/SiteHeader";
 import { FloatingActions, waLink, PHONE } from "@/components/FloatingActions";
 import { BookingForm } from "@/components/BookingForm";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -123,19 +124,21 @@ function HomePage() {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-leaf" /> Trichy · Tamil Nadu
             </div>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] text-primary sm:text-5xl lg:text-6xl">
-              Travel Assistance Made <span className="relative inline-block">
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] text-primary sm:text-5xl lg:text-6xl">
+              Travel Assistance Made{" "}
+              <span className="relative inline-block">
                 <span className="relative z-10">Easy</span>
-                <span className="absolute inset-x-0 bottom-1 z-0 h-3 bg-leaf/40" />
-              </span> Across Tamil Nadu
+                <span className="absolute inset-x-0 -bottom-1 z-0 h-2.5 rounded-full bg-leaf/40" />
+              </span>
+              {" "}Across Tamil Nadu
             </h1>
             <p className="mt-5 max-w-xl text-base text-primary/75 sm:text-lg">
               Reliable support for Railway Stations, Bus Stations, Hospital Visits, Elderly Travelers, Medical Escorts and Festival Assistance.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href={waLink()} target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-navy transition hover:brightness-110">
-                <MessageCircle className="h-4 w-4" /> Book on WhatsApp
+                 className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3.5 text-sm font-bold text-whatsapp-foreground shadow-card transition hover:brightness-110">
+                <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               </a>
               <a href={`tel:${PHONE}`}
                  className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-6 py-3.5 text-sm font-bold text-primary transition hover:bg-muted">
@@ -154,18 +157,13 @@ function HomePage() {
 
           <div className="relative animate-fade-up [animation-delay:150ms]">
             <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-primary/10 bg-card shadow-elevated">
+            <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">
               <img
                 src={heroImage}
                 alt="TN45 travel assistance helpers supporting elderly travelers at a Tamil Nadu railway station"
                 width={1280}
                 height={1024}
-                className="h-auto w-full"
-              />
-              <img
-                src={logo.url}
-                alt="TN45"
-                className="absolute -bottom-3 -left-3 h-20 w-auto rounded-xl shadow-yellow animate-float sm:h-24"
+                className="block h-auto w-full"
               />
             </div>
             <div className="mt-5 grid grid-cols-3 gap-3">
@@ -285,10 +283,10 @@ function HomePage() {
             <span className="text-xs font-bold uppercase tracking-widest text-leaf">How It Works</span>
             <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Booking in 5 Simple Steps</h2>
           </div>
-          <ol className="relative mt-14 space-y-8 border-l-2 border-dashed border-secondary pl-8 sm:mx-auto sm:max-w-3xl">
+          <ol className="relative mt-14 space-y-10 border-l-2 border-dashed border-secondary pl-14 sm:mx-auto sm:max-w-3xl sm:pl-16">
             {steps.map((s, i) => (
               <li key={s.t} className="relative">
-                <span className="absolute -left-[42px] grid h-10 w-10 place-items-center rounded-full bg-gradient-plate text-sm font-extrabold text-primary shadow-yellow">
+                <span className="absolute -left-[68px] grid h-12 w-12 place-items-center rounded-full bg-gradient-plate text-base font-extrabold text-primary shadow-yellow sm:-left-[72px]">
                   {i + 1}
                 </span>
                 <h3 className="text-lg font-bold text-primary">{s.t}</h3>
@@ -392,13 +390,13 @@ function HomePage() {
             <span className="text-xs font-bold uppercase tracking-widest text-leaf">Contact</span>
             <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Reach Tamilnadu Travel Company</h2>
             <p className="mt-4 text-primary/80">We respond fastest on WhatsApp. Drop in, call, or message us anytime.</p>
-            <div className="mt-8 space-y-4">
+            <div className="mt-8 grid gap-4">
               <ContactRow icon={MapPin} title="Address">
                 Race Course Road, 18 Richard Building,<br />
                 Mannarpuram, Trichy East,<br />
                 Tiruchirappalli, Tamil Nadu 620023
               </ContactRow>
-              <ContactRow icon={MessageCircle} title="WhatsApp" href={waLink()}>
+              <ContactRow icon={WhatsAppIcon} title="WhatsApp" href={waLink()}>
                 +91 96554 51299
               </ContactRow>
               <ContactRow icon={Phone} title="Phone" href={`tel:${PHONE}`}>
