@@ -366,7 +366,6 @@ function HomePage() {
         <div className="mt-12">
           <TestimonialsMarquee items={testimonials} />
         </div>
-        </div>
       </section>
 
       {/* FAQ */}
