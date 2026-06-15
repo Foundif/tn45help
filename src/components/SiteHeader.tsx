@@ -3,6 +3,7 @@ import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import logo from "@/assets/tn45-logo.asset.json";
 import { waLink, PHONE } from "./FloatingActions";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { setMenuOpen } from "./menuStore";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -28,11 +29,13 @@ export function SiteHeader() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    setMenuOpen(open);
+    return () => { document.body.style.overflow = ""; setMenuOpen(false); };
   }, [open]);
 
   const closeDrawer = () => {
     setClosing(true);
+    setMenuOpen(false);
     setTimeout(() => { setOpen(false); setClosing(false); }, 320);
   };
 

@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import logo from "@/assets/tn45-logo.asset.json";
 import heroImage from "@/assets/hero-illustration.jpg";
+import hero2 from "@/assets/hero-2.jpg";
+import hero3 from "@/assets/hero-3.jpg";
 import svcStation from "@/assets/svc-station-assist.jpg";
 import svcHome from "@/assets/svc-home-to-station.jpg";
 import svcToHome from "@/assets/svc-station-to-home.jpg";
@@ -19,6 +21,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { FloatingActions, waLink, PHONE } from "@/components/FloatingActions";
 import { BookingForm } from "@/components/BookingForm";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -95,6 +99,17 @@ const testimonials = [
   { n: "Saravanan R.", c: "Trichy", q: "Excellent support at Trichy Railway Station. Very helpful team — handled my elderly father with care." },
   { n: "Lakshmi P.", c: "Srirangam", q: "Used their hospital assistance service for my parents. Highly recommended for senior citizens." },
   { n: "Mohan K.", c: "Tiruchirappalli", q: "Smooth booking process and professional staff. Worth every rupee." },
+  { n: "Priya S.", c: "Thillai Nagar", q: "Booked outstation medical escort for my mother. The attendant was kind, punctual and very experienced." },
+  { n: "Karthik V.", c: "Srirangam", q: "Helped my parents with festival temple visits. Stress-free and on time, every single stop." },
+  { n: "Anitha M.", c: "Cantonment", q: "Quick WhatsApp booking, fair pricing, and a polite helper at the bus station. Highly trustworthy team." },
+  { n: "Ramesh N.", c: "Trichy", q: "Used their station-to-home drop service. Felt safe and well looked-after the entire way." },
+  { n: "Deepa A.", c: "Woraiyur", q: "Wheelchair assistance at the railway platform was a lifesaver. Will definitely book again." },
+];
+
+const heroSlides = [
+  { src: heroImage, alt: "TN45 helpers supporting elderly travelers at a Tamil Nadu railway station" },
+  { src: hero2, alt: "TN45 assistant helping elderly women board a bus in Tamil Nadu" },
+  { src: hero3, alt: "TN45 medical escort accompanying an elderly patient at a hospital" },
 ];
 
 const faqs = [
@@ -113,18 +128,17 @@ function HomePage() {
       <FloatingActions />
 
       {/* HERO */}
-      <section id="home" className="relative overflow-hidden bg-gradient-hero pt-24 pb-16 sm:pt-32 sm:pb-24">
+      <section id="home" className="relative overflow-hidden bg-gradient-hero pt-20 pb-10 sm:pt-32 sm:pb-24">
         <div className="bg-gradient-radial absolute inset-0" />
-        {/* decorative blobs */}
         <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-secondary/40 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-leaf/20 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:gap-10 sm:px-6 lg:grid-cols-2 lg:gap-12">
           <div className="animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card/80 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card/80 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-primary backdrop-blur sm:px-4 sm:py-1.5 sm:text-xs">
               <span className="h-1.5 w-1.5 rounded-full bg-leaf" /> Trichy · Tamil Nadu
             </div>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] text-primary sm:text-5xl lg:text-6xl">
+            <h1 className="mt-3 text-[26px] font-extrabold leading-[1.12] text-primary sm:mt-5 sm:text-5xl lg:text-6xl">
               Travel Assistance Made{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">Easy</span>
@@ -132,23 +146,24 @@ function HomePage() {
               </span>
               {" "}Across Tamil Nadu
             </h1>
-            <p className="mt-5 max-w-xl text-base text-primary/75 sm:text-lg">
-              Reliable support for Railway Stations, Bus Stations, Hospital Visits, Elderly Travelers, Medical Escorts and Festival Assistance.
+            <p className="mt-3 max-w-xl text-sm text-primary/75 sm:mt-5 sm:text-lg">
+              <span className="sm:hidden">Trichy's trusted helpers for railway, bus, hospital & elderly travel.</span>
+              <span className="hidden sm:inline">Reliable support for Railway Stations, Bus Stations, Hospital Visits, Elderly Travelers, Medical Escorts and Festival Assistance.</span>
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap gap-2.5 sm:mt-7 sm:gap-3">
               <a href={waLink()} target="_blank" rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-6 py-3.5 text-sm font-bold text-whatsapp-foreground shadow-card transition hover:brightness-110">
+                 className="inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-sm font-bold text-whatsapp-foreground shadow-card transition hover:brightness-110 sm:px-6 sm:py-3.5">
                 <WhatsAppIcon className="h-4 w-4" /> Book on WhatsApp
               </a>
               <a href={`tel:${PHONE}`}
-                 className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-6 py-3.5 text-sm font-bold text-primary transition hover:bg-muted">
+                 className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-5 py-3 text-sm font-bold text-primary transition hover:bg-muted sm:px-6 sm:py-3.5">
                 <Phone className="h-4 w-4" /> Call Now
               </a>
             </div>
-            <div className="mt-8 grid grid-cols-2 gap-2.5 text-sm sm:grid-cols-4">
+            <div className="mt-5 grid grid-cols-2 gap-2 text-xs sm:mt-8 sm:grid-cols-4 sm:gap-2.5 sm:text-sm">
               {["Trusted Assistance", "Trained Helpers", "Affordable Pricing", "Available in Trichy"].map((f) => (
                 <div key={f} className="flex items-center gap-2 text-primary/85">
-                  <CheckCircle2 className="h-4 w-4 text-leaf" />
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-leaf" />
                   <span className="font-medium">{f}</span>
                 </div>
               ))}
@@ -157,23 +172,17 @@ function HomePage() {
 
           <div className="relative animate-fade-up [animation-delay:150ms]">
             <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[2rem] shadow-elevated">
-              <img
-                src={heroImage}
-                alt="TN45 travel assistance helpers supporting elderly travelers at a Tamil Nadu railway station"
-                width={1280}
-                height={1024}
-                className="block h-auto w-full"
-              />
+            <div className="relative">
+              <HeroCarousel images={heroSlides} />
             </div>
-            <div className="mt-5 grid grid-cols-3 gap-3">
+            <div className="mt-4 grid grid-cols-3 gap-2.5 sm:mt-5 sm:gap-3">
               {[
                 { v: "24/7", l: "Inquiry" },
                 { v: "₹200+", l: "Starting" },
                 { v: "1000+", l: "Trips" },
               ].map((s) => (
-                <div key={s.l} className="rounded-2xl border border-primary/10 bg-card p-3 text-center shadow-card">
-                  <div className="text-xl font-extrabold text-primary sm:text-2xl">{s.v}</div>
+                <div key={s.l} className="rounded-2xl border border-primary/10 bg-card p-2.5 text-center shadow-card sm:p-3">
+                  <div className="text-lg font-extrabold text-primary sm:text-2xl">{s.v}</div>
                   <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{s.l}</div>
                 </div>
               ))}
@@ -353,20 +362,9 @@ function HomePage() {
             <span className="text-xs font-bold uppercase tracking-widest text-leaf">Testimonials</span>
             <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">What Our Customers Say</h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure key={t.n} className="flex flex-col rounded-3xl border border-border bg-card p-6 shadow-card">
-                <div className="flex gap-1 text-secondary">
-                  {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}
-                </div>
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-primary">"{t.q}"</blockquote>
-                <figcaption className="mt-5 border-t border-border pt-4">
-                  <div className="text-sm font-bold text-primary">{t.n}</div>
-                  <div className="text-xs text-muted-foreground">{t.c}</div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+        </div>
+        <div className="mt-12">
+          <TestimonialsMarquee items={testimonials} />
         </div>
       </section>
 
