@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import logo from "@/assets/tn45-logo.asset.json";
 import heroImage from "@/assets/hero-illustration.jpg";
+import hero2 from "@/assets/hero-2.jpg";
+import hero3 from "@/assets/hero-3.jpg";
 import svcStation from "@/assets/svc-station-assist.jpg";
 import svcHome from "@/assets/svc-home-to-station.jpg";
 import svcToHome from "@/assets/svc-station-to-home.jpg";
@@ -19,6 +21,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { FloatingActions, waLink, PHONE } from "@/components/FloatingActions";
 import { BookingForm } from "@/components/BookingForm";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -95,6 +99,17 @@ const testimonials = [
   { n: "Saravanan R.", c: "Trichy", q: "Excellent support at Trichy Railway Station. Very helpful team — handled my elderly father with care." },
   { n: "Lakshmi P.", c: "Srirangam", q: "Used their hospital assistance service for my parents. Highly recommended for senior citizens." },
   { n: "Mohan K.", c: "Tiruchirappalli", q: "Smooth booking process and professional staff. Worth every rupee." },
+  { n: "Priya S.", c: "Thillai Nagar", q: "Booked outstation medical escort for my mother. The attendant was kind, punctual and very experienced." },
+  { n: "Karthik V.", c: "Srirangam", q: "Helped my parents with festival temple visits. Stress-free and on time, every single stop." },
+  { n: "Anitha M.", c: "Cantonment", q: "Quick WhatsApp booking, fair pricing, and a polite helper at the bus station. Highly trustworthy team." },
+  { n: "Ramesh N.", c: "Trichy", q: "Used their station-to-home drop service. Felt safe and well looked-after the entire way." },
+  { n: "Deepa A.", c: "Woraiyur", q: "Wheelchair assistance at the railway platform was a lifesaver. Will definitely book again." },
+];
+
+const heroSlides = [
+  { src: heroImage, alt: "TN45 helpers supporting elderly travelers at a Tamil Nadu railway station" },
+  { src: hero2, alt: "TN45 assistant helping elderly women board a bus in Tamil Nadu" },
+  { src: hero3, alt: "TN45 medical escort accompanying an elderly patient at a hospital" },
 ];
 
 const faqs = [
