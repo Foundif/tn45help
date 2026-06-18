@@ -251,3 +251,16 @@ function HomePage() {
     </div>
   );
 }
+
+function HomeFaq({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+      <button onClick={() => setOpen((s) => !s)} className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
+        <span className="text-sm font-semibold text-primary sm:text-base">{q}</span>
+        <ChevronDown className={`h-5 w-5 shrink-0 text-primary transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && <div className="border-t border-border bg-muted/30 px-5 py-4 text-sm leading-relaxed text-muted-foreground animate-fade-in">{a}</div>}
+    </div>
+  );
+}
