@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
-import { waLink } from "./FloatingActions";
+import { Phone } from "lucide-react";
+import { waLink, PHONE } from "./FloatingActions";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const SERVICES = [
   "In Railway/Bus Station Assist",
@@ -31,18 +32,21 @@ export function BookingForm() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `*New Booking Request — TN45*%0A
-*Name:* ${form.name}
-*Mobile:* ${form.mobile}
-*Service:* ${form.service}
-*Transport Mode:* ${form.transport}
-*Travel Details:* ${form.details}
-*Address:* ${form.address}
-*Landmark:* ${form.landmark}
-*Date:* ${form.date}
-*Time:* ${form.time}
-*Additional Requirements:* ${form.notes}`;
-    window.open(waLink(msg), "_blank");
+    const lines = [
+      "HELP — New Booking Request (TN45)",
+      "",
+      `Name: ${form.name}`,
+      `Mobile: ${form.mobile}`,
+      `Service: ${form.service}`,
+      `Transport Mode: ${form.transport}`,
+      `Travel Details: ${form.details}`,
+      `Address: ${form.address}`,
+      `Landmark: ${form.landmark}`,
+      `Date: ${form.date}`,
+      `Time: ${form.time}`,
+      `Additional Requirements: ${form.notes}`,
+    ];
+    window.open(waLink(lines.join("\n")), "_blank");
   };
 
   const input =
@@ -104,13 +108,20 @@ export function BookingForm() {
 
       <button
         type="submit"
-        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-bold text-primary-foreground shadow-navy transition hover:brightness-110"
+        className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-6 py-4 text-base font-bold text-whatsapp-foreground shadow-card transition hover:brightness-110"
       >
-        <Send className="h-4 w-4" /> Send Booking via WhatsApp
+        <WhatsAppIcon className="h-5 w-5" /> Send Booking via WhatsApp
       </button>
+      <a
+        href={`tel:${PHONE}`}
+        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary/15 bg-card px-6 py-3.5 text-sm font-bold text-primary transition hover:bg-muted"
+      >
+        <Phone className="h-4 w-4" /> Or Call +91 94866 42242
+      </a>
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        Your details open WhatsApp pre-filled to +91 96554 51299
+        Your details open WhatsApp pre-filled with the keyword <strong>HELP</strong> to +91 96554 51299
       </p>
+
     </form>
   );
 }

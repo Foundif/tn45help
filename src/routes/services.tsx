@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
+import { PageCTA } from "@/components/PageCTA";
 import { services, addons } from "@/lib/site-data";
 import { waLink } from "@/components/FloatingActions";
 
@@ -81,6 +82,7 @@ function ServicesPage() {
           </div>
         </div>
       </section>
+      <PageCTA title="Not sure which service fits?" subtitle="Message HELP on WhatsApp — we'll recommend the right option in minutes." />
     </PageShell>
   );
 }

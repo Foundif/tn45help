@@ -56,8 +56,15 @@ export function SiteHeader() {
                 key={l.to}
                 to={l.to}
                 activeOptions={{ exact: true }}
-                activeProps={{ className: "bg-primary text-primary-foreground" }}
-                className="rounded-full px-3 py-2 text-sm font-semibold text-primary/80 transition hover:bg-muted hover:text-primary"
+                className="rounded-full px-3 py-2 text-sm font-semibold transition"
+                activeProps={{
+                  className:
+                    "rounded-full px-3 py-2 text-sm font-semibold transition bg-primary text-primary-foreground shadow-navy",
+                }}
+                inactiveProps={{
+                  className:
+                    "rounded-full px-3 py-2 text-sm font-semibold transition text-primary/80 hover:bg-muted hover:text-primary",
+                }}
               >
                 {l.label}
               </Link>
@@ -124,8 +131,15 @@ export function SiteHeader() {
                   onClick={closeDrawer}
                   style={{ animationDelay: `${80 + i * 50}ms` }}
                   activeOptions={{ exact: true }}
-                  activeProps={{ className: "bg-muted text-primary" }}
-                  className="group flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-base font-semibold text-foreground transition hover:bg-muted animate-fade-up"
+                  className="group flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition animate-fade-up"
+                  activeProps={{
+                    className:
+                      "group flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition animate-fade-up bg-primary text-primary-foreground",
+                  }}
+                  inactiveProps={{
+                    className:
+                      "group flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition animate-fade-up text-foreground hover:bg-muted",
+                  }}
                 >
                   <span>{l.label}</span>
                   <ChevronRight className="h-4 w-4 text-primary/40 transition group-hover:translate-x-1 group-hover:text-primary" />

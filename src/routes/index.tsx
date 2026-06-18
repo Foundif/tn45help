@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, CheckCircle2, ArrowRight } from "lucide-react";
+import { Phone, CheckCircle2, ArrowRight, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { FloatingActions, waLink, PHONE } from "@/components/FloatingActions";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
-import { heroSlides, why, testimonials } from "@/lib/site-data";
+import { heroSlides, why, testimonials, services, steps, faqs } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -139,6 +140,65 @@ function HomePage() {
         </div>
       </section>
 
+      {/* SERVICES PREVIEW */}
+      <section className="bg-gradient-cream py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-leaf">Services & Pricing</span>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Pick the help you need</h2>
+            <p className="mt-3 text-muted-foreground">Transparent pricing for every assistance service we offer.</p>
+          </div>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.slice(0, 6).map((s) => (
+              <article key={s.name} className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition hover:-translate-y-1 hover:shadow-elevated">
+                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                  <img src={s.image} alt={s.name} loading="lazy" width={800} height={600}
+                       className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                  <div className="absolute left-3 top-3 grid h-11 w-11 place-items-center rounded-2xl bg-secondary text-secondary-foreground shadow-yellow">
+                    <s.icon className="h-5 w-5" />
+                  </div>
+                  <div className="absolute right-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-navy">{s.price}</div>
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-base font-bold text-primary">{s.name}</h3>
+                  <p className="mt-1.5 flex-1 text-sm text-muted-foreground">{s.desc}</p>
+                  <div className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">{s.duration}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-110">
+              View All Services & Pricing <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS PREVIEW */}
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-leaf">How It Works</span>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Booking in 5 simple steps</h2>
+          </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {steps.map((s, i) => (
+              <div key={s.t} className="rounded-2xl border border-border bg-card p-5 shadow-card transition hover:-translate-y-0.5 hover:shadow-elevated">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-plate text-base font-extrabold text-primary shadow-yellow">{i + 1}</div>
+                <h3 className="mt-3 text-sm font-bold text-primary">{s.t}</h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{s.d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Link to="/how-it-works" className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-6 py-3 text-sm font-bold text-primary transition hover:bg-muted">
+              Full Walkthrough <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
       <section className="bg-gradient-cream py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -149,6 +209,24 @@ function HomePage() {
         </div>
         <div className="mt-12">
           <TestimonialsMarquee items={testimonials} />
+        </div>
+      </section>
+
+      {/* FAQ PREVIEW */}
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-leaf">FAQ</span>
+            <h2 className="mt-3 text-3xl font-bold text-primary sm:text-4xl">Common questions</h2>
+          </div>
+          <div className="mt-10 space-y-3">
+            {faqs.slice(0, 4).map((f, i) => <HomeFaq key={i} q={f.q} a={f.a} />)}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <Link to="/faq" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-110">
+              See All FAQs <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -170,6 +248,19 @@ function HomePage() {
       </section>
 
       <SiteFooter />
+    </div>
+  );
+}
+
+function HomeFaq({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+      <button onClick={() => setOpen((s) => !s)} className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left">
+        <span className="text-sm font-semibold text-primary sm:text-base">{q}</span>
+        <ChevronDown className={`h-5 w-5 shrink-0 text-primary transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && <div className="border-t border-border bg-muted/30 px-5 py-4 text-sm leading-relaxed text-muted-foreground animate-fade-in">{a}</div>}
     </div>
   );
 }
