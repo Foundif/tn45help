@@ -121,7 +121,6 @@ export function BookingForm() {
       <p className="mt-3 text-center text-xs text-muted-foreground">
         Your details open WhatsApp pre-filled with the keyword <strong>HELP</strong> to +91 96554 51299
       </p>
-      <button type="submit" className="hidden" aria-hidden />
 
     </form>
   );
