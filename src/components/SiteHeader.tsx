@@ -56,8 +56,15 @@ export function SiteHeader() {
                 key={l.to}
                 to={l.to}
                 activeOptions={{ exact: true }}
-                activeProps={{ className: "bg-primary text-primary-foreground" }}
-                className="rounded-full px-3 py-2 text-sm font-semibold text-primary/80 transition hover:bg-muted hover:text-primary"
+                className="rounded-full px-3 py-2 text-sm font-semibold transition"
+                activeProps={{
+                  className:
+                    "rounded-full px-3 py-2 text-sm font-semibold transition bg-primary text-primary-foreground shadow-navy",
+                }}
+                inactiveProps={{
+                  className:
+                    "rounded-full px-3 py-2 text-sm font-semibold transition text-primary/80 hover:bg-muted hover:text-primary",
+                }}
               >
                 {l.label}
               </Link>
