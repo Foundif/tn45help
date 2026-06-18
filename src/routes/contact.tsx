@@ -3,8 +3,10 @@ import { ReactNode } from "react";
 import { MapPin, Phone, Clock } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
+import { PageCTA } from "@/components/PageCTA";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { waLink, PHONE } from "@/components/FloatingActions";
+import supportImg from "@/assets/contact-support.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -22,36 +24,49 @@ function ContactPage() {
   return (
     <PageShell>
       <PageHero eyebrow="Contact" title="Reach Tamilnadu Travel Company">
-        We respond fastest on WhatsApp. Drop in, call, or message us anytime.
+        We respond fastest on WhatsApp. Drop in, call, or message us anytime — 24/7 inquiry support.
       </PageHero>
+
       <section className="bg-gradient-plate py-16 text-primary sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
-          <div className="grid gap-4">
-            <ContactRow icon={MapPin} title="Address">
-              Race Course Road, 18 Richard Building,<br />
-              Mannarpuram, Trichy East,<br />
-              Tiruchirappalli, Tamil Nadu 620023
-            </ContactRow>
-            <ContactRow icon={WhatsAppIcon} title="WhatsApp" href={waLink()}>
-              +91 96554 51299
-            </ContactRow>
-            <ContactRow icon={Phone} title="Phone" href={`tel:${PHONE}`}>
-              +91 94866 42242
-            </ContactRow>
-            <ContactRow icon={Clock} title="Hours">
-              Monday – Sunday · 24/7 Inquiry Support
-            </ContactRow>
+          <div>
+            <img
+              src={supportImg}
+              alt="Friendly TN45 customer support"
+              loading="lazy"
+              width={1280}
+              height={896}
+              className="w-full rounded-3xl border border-primary/10 shadow-elevated"
+            />
+            <div className="mt-6 grid gap-4">
+              <ContactRow icon={MapPin} title="Address">
+                Race Course Road, 18 Richard Building,<br />
+                Mannarpuram, Trichy East,<br />
+                Tiruchirappalli, Tamil Nadu 620023
+              </ContactRow>
+              <ContactRow icon={WhatsAppIcon} title="WhatsApp" href={waLink()}>
+                +91 96554 51299 — message <strong>HELP</strong>
+              </ContactRow>
+              <ContactRow icon={Phone} title="Phone" href={`tel:${PHONE}`}>
+                +91 94866 42242
+              </ContactRow>
+              <ContactRow icon={Clock} title="Hours">
+                Monday – Sunday · 24/7 Inquiry Support
+              </ContactRow>
+            </div>
           </div>
           <div className="overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-elevated">
             <iframe
               title="TN45 Location"
               src="https://www.google.com/maps?q=Mannarpuram,+Tiruchirappalli,+Tamil+Nadu+620023&output=embed"
-              className="h-full min-h-[400px] w-full"
+              className="h-full min-h-[500px] w-full"
               loading="lazy"
             />
           </div>
         </div>
       </section>
+
+      <PageCTA title="Talk to a real person, right now" />
     </PageShell>
   );
 }
