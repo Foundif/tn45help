@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
-import { waLink } from "./FloatingActions";
+import { Send, Phone } from "lucide-react";
+import { waLink, PHONE } from "./FloatingActions";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 const SERVICES = [
   "In Railway/Bus Station Assist",
