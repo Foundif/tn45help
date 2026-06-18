@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import { waLink, PHONE } from "./FloatingActions";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
