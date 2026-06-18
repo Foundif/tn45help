@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { waLink, PHONE } from "@/components/FloatingActions";
-import supportImg from "@/assets/contact-support.jpg";
+const supportImg = "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1280";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

@@ -1,18 +1,14 @@
-import {
-  Train, Home, MapPin, PartyPopper, Stethoscope, Ambulance,
-  ShieldCheck, IndianRupee, Smile, Heart, MessageCircle, Award,
-  Clock, Users, Accessibility, Sparkles,
-} from "lucide-react";
-import heroImage from "@/assets/hero-illustration.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import svcStation from "@/assets/svc-station-assist.jpg";
-import svcHome from "@/assets/svc-home-to-station.jpg";
-import svcToHome from "@/assets/svc-station-to-home.jpg";
-import svcFestHalf from "@/assets/svc-festival-half.jpg";
-import svcFestFull from "@/assets/svc-festival-full.jpg";
-import svcHospital from "@/assets/svc-hospital.jpg";
-import svcOutstation from "@/assets/svc-outstation.jpg";
+import { Brain as Train, Hop as Home, MapPin, PartyPopper, Stethoscope, Ambulance, ShieldCheck, IndianRupee, Smile, Heart, MessageCircle, Award, Clock, Users, Accessibility, Sparkles } from "lucide-react";
+const heroImage = "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1280";
+const hero2 = "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1280";
+const hero3 = "https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=1280";
+const svcStation = "https://images.pexels.com/photos/2031758/pexels-photo-2031758.jpeg?auto=compress&cs=tinysrgb&w=800";
+const svcHome = "https://images.pexels.com/photos/5699516/pexels-photo-5699516.jpeg?auto=compress&cs=tinysrgb&w=800";
+const svcToHome = "https://images.pexels.com/photos/3768146/pexels-photo-3768146.jpeg?auto=compress&cs=tinysrgb&w=800";
+const svcFestHalf = "https://images.pexels.com/photos/2072181/pexels-photo-2072181.jpeg?auto=compress&cs=tinysrgb&w=800";
+const svcFestFull = "https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=800";
+const svcHospital = "https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=800";
+const svcOutstation = "https://images.pexels.com/photos/7659573/pexels-photo-7659573.jpeg?auto=compress&cs=tinysrgb&w=800";
 
 export const services = [
   { icon: Train, image: svcStation, name: "In Railway/Bus Station Assist", desc: "Support inside the station — luggage, boarding, navigation.", price: "₹200", duration: "Up to 2 Hours" },
