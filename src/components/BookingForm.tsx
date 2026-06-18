@@ -32,18 +32,21 @@ export function BookingForm() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `*New Booking Request — TN45*%0A
-*Name:* ${form.name}
-*Mobile:* ${form.mobile}
-*Service:* ${form.service}
-*Transport Mode:* ${form.transport}
-*Travel Details:* ${form.details}
-*Address:* ${form.address}
-*Landmark:* ${form.landmark}
-*Date:* ${form.date}
-*Time:* ${form.time}
-*Additional Requirements:* ${form.notes}`;
-    window.open(waLink(msg), "_blank");
+    const lines = [
+      "HELP — New Booking Request (TN45)",
+      "",
+      `Name: ${form.name}`,
+      `Mobile: ${form.mobile}`,
+      `Service: ${form.service}`,
+      `Transport Mode: ${form.transport}`,
+      `Travel Details: ${form.details}`,
+      `Address: ${form.address}`,
+      `Landmark: ${form.landmark}`,
+      `Date: ${form.date}`,
+      `Time: ${form.time}`,
+      `Additional Requirements: ${form.notes}`,
+    ];
+    window.open(waLink(lines.join("\n")), "_blank");
   };
 
   const input =
