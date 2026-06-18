@@ -1,19 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import logo from "@/assets/tn45-logo.asset.json";
 import { waLink, PHONE } from "./FloatingActions";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { setMenuOpen } from "./menuStore";
-
-const links = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#how", label: "How It Works" },
-  { href: "#booking", label: "Booking" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
-];
+import { navLinks } from "@/lib/site-data";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,24 +41,26 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6">
-          <a href="#home" aria-label="TN45 Tamilnadu Travel Company" className="flex shrink-0 items-center">
+          <Link to="/" aria-label="TN45 Tamilnadu Travel Company" className="flex shrink-0 items-center">
             <img
               src={logo.url}
               alt="TN45 Tamilnadu Travel Company"
               className="h-12 w-auto rounded-lg shadow-card sm:h-14"
             />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: true }}
+                activeProps={{ className: "bg-primary text-primary-foreground" }}
                 className="rounded-full px-3 py-2 text-sm font-semibold text-primary/80 transition hover:bg-muted hover:text-primary"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -123,17 +117,19 @@ export function SiteHeader() {
             </div>
 
             <nav className="flex-1 overflow-y-auto px-3 py-4">
-              {links.map((l, i) => (
-                <a
-                  key={l.href}
-                  href={l.href}
+              {navLinks.map((l, i) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
                   onClick={closeDrawer}
                   style={{ animationDelay: `${80 + i * 50}ms` }}
+                  activeOptions={{ exact: true }}
+                  activeProps={{ className: "bg-muted text-primary" }}
                   className="group flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-base font-semibold text-foreground transition hover:bg-muted animate-fade-up"
                 >
                   <span>{l.label}</span>
                   <ChevronRight className="h-4 w-4 text-primary/40 transition group-hover:translate-x-1 group-hover:text-primary" />
-                </a>
+                </Link>
               ))}
             </nav>
 
