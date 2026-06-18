@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, CheckCircle2, ArrowRight } from "lucide-react";
+import { Phone, CheckCircle2, ArrowRight, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { FloatingActions, waLink, PHONE } from "@/components/FloatingActions";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { TestimonialsMarquee } from "@/components/TestimonialsMarquee";
-import { heroSlides, why, testimonials } from "@/lib/site-data";
+import { heroSlides, why, testimonials, services, steps, faqs } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
