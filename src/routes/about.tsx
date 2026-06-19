@@ -3,7 +3,7 @@ import { Award, ShieldCheck, Heart, Users, Sparkles } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
-const aboutImg = "https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=1280";
+import aboutImg from "@/assets/about-team.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

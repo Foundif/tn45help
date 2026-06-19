@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Bus, Stethoscope, Heart, Phone, CircleCheck as CheckCircle2 } from "lucide-react";
+import { Bus, Stethoscope, Heart, Phone, CheckCircle2 } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
 import { BookingForm } from "@/components/BookingForm";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { waLink, PHONE } from "@/components/FloatingActions";
-const bookingImg = "https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg?auto=compress&cs=tinysrgb&w=1280";
+import bookingImg from "@/assets/booking-hero.jpg";
 
 export const Route = createFileRoute("/booking")({
   head: () => ({

@@ -5,7 +5,7 @@ import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
 import { faqs } from "@/lib/site-data";
-const faqImg = "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1280";
+import faqImg from "@/assets/faq-illo.jpg";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({

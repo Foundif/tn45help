@@ -3,7 +3,7 @@ import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
 import { steps } from "@/lib/site-data";
-const hiwImg = "https://images.pexels.com/photos/5699516/pexels-photo-5699516.jpeg?auto=compress&cs=tinysrgb&w=1280";
+import hiwImg from "@/assets/how-it-works.jpg";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
