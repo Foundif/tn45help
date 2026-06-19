@@ -32,24 +32,41 @@ const WHY_ICONS = [
   Stethoscope, MessageCircle, Award, Clock,
 ];
 
+export type ServiceItem = { name: string; desc: string; duration: string; icon: typeof Train; image: string; price: string };
+export type AddonItem = { name: string; price: string; icon: typeof Accessibility };
+export type WhyItem = { t: string; icon: typeof ShieldCheck };
+export type StepItem = { t: string; d: string };
+export type Testimonial = { n: string; c: string; q: string };
+export type FaqItem = { q: string; a: string };
+
 export function useSiteData() {
   const { t } = useTranslation();
   const items = t("services.items", { returnObjects: true }) as Array<{ name: string; desc: string; duration: string }>;
   const addons = t("services.addons", { returnObjects: true }) as Array<{ name: string; price: string }>;
   const whys = t("why", { returnObjects: true }) as string[];
-  const steps = t("steps", { returnObjects: true }) as Array<{ t: string; d: string }>;
-  const testimonials = t("testimonials", { returnObjects: true }) as Array<{ n: string; c: string; q: string }>;
-  const faqs = t("faq.items", { returnObjects: true }) as Array<{ q: string; a: string }>;
+  const steps = t("steps", { returnObjects: true }) as StepItem[];
+  const testimonials = t("testimonials", { returnObjects: true }) as Testimonial[];
+  const faqs = t("faq.items", { returnObjects: true }) as FaqItem[];
 
   return {
-    services: items.map((it, i) => ({ ...it, ...SERVICE_META[i] })),
-    addons: addons.map((a, i) => ({ ...a, icon: ADDON_ICONS[i] })),
-    why: whys.map((label, i) => ({ t: label, icon: WHY_ICONS[i] })),
+    services: items.map((it, i) => ({ ...it, ...SERVICE_META[i] })) as ServiceItem[],
+    addons: addons.map((a, i) => ({ ...a, icon: ADDON_ICONS[i] })) as AddonItem[],
+    why: whys.map((label, i) => ({ t: label, icon: WHY_ICONS[i] })) as WhyItem[],
     steps,
     testimonials,
     faqs,
   };
 }
+
+// Static English fallback for SEO/schema.org at module-load time
+export const faqsEN: FaqItem[] = [
+  { q: "What areas do you serve?", a: "We primarily serve Tiruchirappalli (Trichy) and surrounding areas in Tamil Nadu, including outstation medical escort across the state." },
+  { q: "How do I book a service?", a: "The fastest way is WhatsApp at +91 96554 51299. You can also call +91 94866 42242 or use the booking form on this site." },
+  { q: "Can I request wheelchair assistance?", a: "Yes. Wheelchair assistance is available as an add-on for ₹50 and can be requested at the time of booking." },
+  { q: "Do you provide medical escorts?", a: "Yes — trained medical escorts for hospital visits and outstation medical travel at ₹1200 per day." },
+  { q: "How are payments handled?", a: "Payments are confirmed at the time of booking via UPI, cash or bank transfer. Details shared on WhatsApp." },
+  { q: "What if my travel schedule changes?", a: "Just message us on WhatsApp — we offer flexible rescheduling subject to helper availability." },
+];
 
 export const heroSlides = [
   { src: heroImage, alt: "Exodus Mobility helpers supporting elderly travelers at a Tamil Nadu railway station" },

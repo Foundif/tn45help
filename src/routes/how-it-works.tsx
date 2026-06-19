@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
-import { steps } from "@/lib/site-data";
+import { useSiteData } from "@/lib/site-data";
 import hiwImg from "@/assets/how-it-works.jpg";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How It Works — Book Travel Assistance with TN45" },
-      { name: "description", content: "Booking travel assistance with TN45 in Trichy is simple — choose a service, share details, confirm on WhatsApp and we handle the rest." },
-      { property: "og:title", content: "How It Works — TN45" },
+      { title: "How It Works — Book with Exodus Mobility Co" },
+      { name: "description", content: "Booking travel assistance with Exodus Mobility Co in Trichy is simple — choose a service, share details, confirm on WhatsApp and we handle the rest." },
+      { property: "og:title", content: "How It Works — Exodus Mobility Co" },
       { property: "og:description", content: "Five simple steps to book reliable travel assistance in Trichy." },
     ],
   }),
@@ -18,10 +19,12 @@ export const Route = createFileRoute("/how-it-works")({
 });
 
 function HowItWorksPage() {
+  const { t } = useTranslation();
+  const { steps } = useSiteData();
   return (
     <PageShell>
-      <PageHero eyebrow="How It Works" title="Booking in 5 Simple Steps">
-        From first message to a stress-free trip — here's exactly how TN45 supports you, end to end.
+      <PageHero eyebrow={t("how.eyebrow") as string} title={t("how.title") as string}>
+        {t("how.sub")}
       </PageHero>
 
       <section className="py-16 sm:py-24">
@@ -30,27 +33,25 @@ function HowItWorksPage() {
             <div className="sticky top-28">
               <img
                 src={hiwImg}
-                alt="Illustration of TN45 booking journey"
+                alt={t("how.title") as string}
                 loading="lazy"
                 width={1280}
                 height={896}
-                className="w-full rounded-3xl border border-primary/10 bg-gradient-plate shadow-elevated"
+                className="w-full rounded-3xl border border-primary/10 shadow-elevated"
               />
               <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-card">
-                <div className="text-xs font-bold uppercase tracking-widest text-leaf">Average Response</div>
-                <div className="mt-1 text-2xl font-extrabold text-primary">Under 5 minutes</div>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Most WhatsApp inquiries are confirmed the same day, helpers assigned ahead of time.
-                </p>
+                <div className="text-xs font-bold uppercase tracking-widest text-secondary">{t("how.avgLabel")}</div>
+                <div className="mt-1 text-2xl font-extrabold text-primary">{t("how.avgValue")}</div>
+                <p className="mt-1 text-sm text-muted-foreground">{t("how.avgDesc")}</p>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-3">
-            <ol className="relative space-y-10 border-l-2 border-dashed border-secondary pl-14 sm:pl-16">
+            <ol className="relative space-y-10 border-l-2 border-dashed border-accent pl-14 sm:pl-16">
               {steps.map((s, i) => (
                 <li key={s.t} className="relative">
-                  <span className="absolute -left-[68px] grid h-12 w-12 place-items-center rounded-full bg-gradient-plate text-base font-extrabold text-primary shadow-yellow sm:-left-[72px]">
+                  <span className="absolute -left-[68px] grid h-12 w-12 place-items-center rounded-full bg-accent text-accent-foreground text-base font-extrabold shadow-card sm:-left-[72px]">
                     {i + 1}
                   </span>
                   <h3 className="text-lg font-bold text-primary">{s.t}</h3>
@@ -62,7 +63,7 @@ function HowItWorksPage() {
         </div>
       </section>
 
-      <PageCTA title="Ready to book your first trip?" />
+      <PageCTA title={t("how.ctaTitle") as string} />
     </PageShell>
   );
 }
