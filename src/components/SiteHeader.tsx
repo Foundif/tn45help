@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
-import logo from "@/assets/tn45-logo.asset.json";
+import logo from "@/assets/exodus-logo.png.asset.json";
 import { waLink, PHONE } from "./FloatingActions";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { setMenuOpen } from "./menuStore";
 import { navLinks } from "@/lib/site-data";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function SiteHeader() {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -31,21 +34,23 @@ export function SiteHeader() {
     setTimeout(() => { setOpen(false); setClosing(false); }, 320);
   };
 
+  const brand = t("brand.name") as string;
+
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
           scrolled
-            ? "bg-background/85 backdrop-blur-xl shadow-card border-b border-border/70"
-            : "bg-background/60 backdrop-blur-md"
+            ? "bg-background/90 backdrop-blur-xl shadow-card border-b border-border/70"
+            : "bg-background/75 backdrop-blur-md"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6">
-          <Link to="/" aria-label="TN45 Tamilnadu Travel Company" className="flex shrink-0 items-center">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
+          <Link to="/" aria-label={brand} className="flex shrink-0 items-center">
             <img
               src={logo.url}
-              alt="TN45 Tamilnadu Travel Company"
-              className="h-12 w-auto rounded-lg shadow-card sm:h-14"
+              alt={brand}
+              className="h-12 w-auto rounded-lg bg-primary p-1 shadow-card sm:h-14"
             />
           </Link>
 
@@ -66,18 +71,19 @@ export function SiteHeader() {
                     "rounded-full px-3 py-2 text-sm font-semibold transition text-primary/80 hover:bg-muted hover:text-primary",
                 }}
               >
-                {l.label}
+                {t(`nav.${l.key}`)}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-2">
+            <LanguageSwitcher compact />
             <a
               href={`tel:${PHONE}`}
               aria-label="Call"
               className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition"
             >
-              <Phone className="h-4 w-4" /> Call
+              <Phone className="h-4 w-4" /> {t("cta.callNow")}
             </a>
             <a
               href={waLink()}
@@ -85,7 +91,7 @@ export function SiteHeader() {
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2 text-sm font-bold text-whatsapp-foreground shadow-card hover:brightness-110 transition"
             >
-              <WhatsAppIcon className="h-4 w-4" /> Book Now
+              <WhatsAppIcon className="h-4 w-4" /> {t("cta.bookNow")}
             </a>
             <button
               onClick={() => setOpen(true)}
@@ -104,7 +110,7 @@ export function SiteHeader() {
           <button
             aria-label="Close menu"
             onClick={closeDrawer}
-            className={`absolute inset-0 bg-primary/55 backdrop-blur-sm ${closing ? "animate-fade-bg" : "animate-fade-bg"}`}
+            className="absolute inset-0 bg-primary/55 backdrop-blur-sm animate-fade-bg"
             style={closing ? { animationDirection: "reverse" } : undefined}
           />
           <aside
@@ -112,12 +118,12 @@ export function SiteHeader() {
               closing ? "animate-slide-out" : "animate-slide-in"
             }`}
           >
-            <div className="flex items-center justify-between border-b border-border bg-gradient-plate px-5 py-4">
-              <img src={logo.url} alt="TN45" className="h-12 w-auto rounded-md shadow-card" />
+            <div className="flex items-center justify-between border-b border-border bg-primary px-5 py-4">
+              <img src={logo.url} alt={brand} className="h-12 w-auto rounded-md bg-primary p-1 shadow-card" />
               <button
                 onClick={closeDrawer}
                 aria-label="Close"
-                className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground transition hover:brightness-110"
+                className="grid h-10 w-10 place-items-center rounded-full bg-secondary text-secondary-foreground transition hover:brightness-110"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -141,7 +147,7 @@ export function SiteHeader() {
                       "group flex items-center justify-between gap-3 rounded-xl px-4 py-3.5 text-base font-semibold transition animate-fade-up text-foreground hover:bg-muted",
                   }}
                 >
-                  <span>{l.label}</span>
+                  <span>{t(`nav.${l.key}`)}</span>
                   <ChevronRight className="h-4 w-4 text-primary/40 transition group-hover:translate-x-1 group-hover:text-primary" />
                 </Link>
               ))}
@@ -155,17 +161,17 @@ export function SiteHeader() {
                 onClick={closeDrawer}
                 className="flex items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3.5 text-sm font-bold text-whatsapp-foreground shadow-card"
               >
-                <WhatsAppIcon className="h-4 w-4" /> WhatsApp Booking
+                <WhatsAppIcon className="h-4 w-4" /> {t("cta.whatsappBooking")}
               </a>
               <a
                 href={`tel:${PHONE}`}
                 onClick={closeDrawer}
                 className="flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3.5 text-sm font-bold text-primary-foreground shadow-navy"
               >
-                <Phone className="h-4 w-4" /> Call +91 94866 42242
+                <Phone className="h-4 w-4" /> {t("cta.callPhone")}
               </a>
               <p className="pt-2 text-center text-xs text-muted-foreground">
-                Mannarpuram, Trichy · 24/7 Inquiry Support
+                Mannarpuram, Trichy · 24/7
               </p>
             </div>
           </aside>

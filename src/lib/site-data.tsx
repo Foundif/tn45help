@@ -3,6 +3,7 @@ import {
   ShieldCheck, IndianRupee, Smile, Heart, MessageCircle, Award,
   Clock, Users, Accessibility, Sparkles,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-illustration.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
@@ -14,60 +15,51 @@ import svcFestFull from "@/assets/svc-festival-full.jpg";
 import svcHospital from "@/assets/svc-hospital.jpg";
 import svcOutstation from "@/assets/svc-outstation.jpg";
 
-export const services = [
-  { icon: Train, image: svcStation, name: "In Railway/Bus Station Assist", desc: "Support inside the station — luggage, boarding, navigation.", price: "₹200", duration: "Up to 2 Hours" },
-  { icon: Home, image: svcHome, name: "Home to Railway/Bus Station", desc: "Pickup from home and assisted drop till your boarding point.", price: "₹200", duration: "Up to 2 Hours" },
-  { icon: MapPin, image: svcToHome, name: "Railway/Bus Station to Home", desc: "Receive at the platform and safe drop to home address.", price: "₹200", duration: "Up to 2 Hours" },
-  { icon: PartyPopper, image: svcFestHalf, name: "Festivity Half Day Assistance", desc: "Temple visits, family functions, festival outings.", price: "₹600", duration: "6 Hours" },
-  { icon: Sparkles, image: svcFestFull, name: "Festivity Full Day Assistance", desc: "Full-day support for weddings, ceremonies, gatherings.", price: "₹1200", duration: "12 Hours" },
-  { icon: Stethoscope, image: svcHospital, name: "Hospital Visit Assist", desc: "Pickup, OPD assistance and drop — ideal for elderly patients.", price: "₹500", duration: "4 Hours" },
-  { icon: Ambulance, image: svcOutstation, name: "Outstation Medical Escort", desc: "Trained escort for outstation medical travel and stays.", price: "₹1200", duration: "per Day" },
+const SERVICE_META = [
+  { icon: Train, image: svcStation, price: "₹200" },
+  { icon: Home, image: svcHome, price: "₹200" },
+  { icon: MapPin, image: svcToHome, price: "₹200" },
+  { icon: PartyPopper, image: svcFestHalf, price: "₹600" },
+  { icon: Sparkles, image: svcFestFull, price: "₹1200" },
+  { icon: Stethoscope, image: svcHospital, price: "₹500" },
+  { icon: Ambulance, image: svcOutstation, price: "₹1200" },
 ];
 
-export const addons = [
-  { icon: Accessibility, name: "Wheelchair Assistance", price: "₹50" },
-  { icon: Users, name: "Porter Service", price: "Actual Charges" },
-  { icon: Clock, name: "After Hours Support", price: "+20%" },
-  { icon: Clock, name: "Extra Hours", price: "₹100 / hr" },
+const ADDON_ICONS = [Accessibility, Users, Clock, Clock];
+
+const WHY_ICONS = [
+  ShieldCheck, IndianRupee, Smile, Heart,
+  Stethoscope, MessageCircle, Award, Clock,
 ];
 
-export const why = [
-  { icon: ShieldCheck, t: "Reliable Travel Assistance" },
-  { icon: IndianRupee, t: "Affordable Pricing" },
-  { icon: Smile, t: "Friendly Helpers" },
-  { icon: Heart, t: "Senior Citizen Support" },
-  { icon: Stethoscope, t: "Medical Escort Services" },
-  { icon: MessageCircle, t: "Easy WhatsApp Booking" },
-  { icon: Award, t: "Local Trichy Expertise" },
-  { icon: Clock, t: "Fast Response Team" },
-];
+export type ServiceItem = { name: string; desc: string; duration: string; icon: typeof Train; image: string; price: string };
+export type AddonItem = { name: string; price: string; icon: typeof Accessibility };
+export type WhyItem = { t: string; icon: typeof ShieldCheck };
+export type StepItem = { t: string; d: string };
+export type Testimonial = { n: string; c: string; q: string };
+export type FaqItem = { q: string; a: string };
 
-export const steps = [
-  { t: "Choose Your Service", d: "Pick from station assist, hospital visits, festivity or escort services." },
-  { t: "Share Travel Details", d: "Send your date, time, pickup, and any special needs over WhatsApp." },
-  { t: "Confirm Booking", d: "We confirm availability and lock your slot instantly." },
-  { t: "Helper Assigned", d: "A trained helper is assigned and briefed before your service." },
-  { t: "Hassle-Free Assistance", d: "Travel with confidence — we handle the rest." },
-];
+export function useSiteData() {
+  const { t } = useTranslation();
+  const items = t("services.items", { returnObjects: true }) as Array<{ name: string; desc: string; duration: string }>;
+  const addons = t("services.addons", { returnObjects: true }) as Array<{ name: string; price: string }>;
+  const whys = t("why", { returnObjects: true }) as string[];
+  const steps = t("steps", { returnObjects: true }) as StepItem[];
+  const testimonials = t("testimonials", { returnObjects: true }) as Testimonial[];
+  const faqs = t("faq.items", { returnObjects: true }) as FaqItem[];
 
-export const testimonials = [
-  { n: "Saravanan R.", c: "Trichy", q: "Excellent support at Trichy Railway Station. Very helpful team — handled my elderly father with care." },
-  { n: "Lakshmi P.", c: "Srirangam", q: "Used their hospital assistance service for my parents. Highly recommended for senior citizens." },
-  { n: "Mohan K.", c: "Tiruchirappalli", q: "Smooth booking process and professional staff. Worth every rupee." },
-  { n: "Priya S.", c: "Thillai Nagar", q: "Booked outstation medical escort for my mother. The attendant was kind, punctual and very experienced." },
-  { n: "Karthik V.", c: "Srirangam", q: "Helped my parents with festival temple visits. Stress-free and on time, every single stop." },
-  { n: "Anitha M.", c: "Cantonment", q: "Quick WhatsApp booking, fair pricing, and a polite helper at the bus station. Highly trustworthy team." },
-  { n: "Ramesh N.", c: "Trichy", q: "Used their station-to-home drop service. Felt safe and well looked-after the entire way." },
-  { n: "Deepa A.", c: "Woraiyur", q: "Wheelchair assistance at the railway platform was a lifesaver. Will definitely book again." },
-];
+  return {
+    services: items.map((it, i) => ({ ...it, ...SERVICE_META[i] })) as ServiceItem[],
+    addons: addons.map((a, i) => ({ ...a, icon: ADDON_ICONS[i] })) as AddonItem[],
+    why: whys.map((label, i) => ({ t: label, icon: WHY_ICONS[i] })) as WhyItem[],
+    steps,
+    testimonials,
+    faqs,
+  };
+}
 
-export const heroSlides = [
-  { src: heroImage, alt: "TN45 helpers supporting elderly travelers at a Tamil Nadu railway station" },
-  { src: hero2, alt: "TN45 assistant helping elderly women board a bus in Tamil Nadu" },
-  { src: hero3, alt: "TN45 medical escort accompanying an elderly patient at a hospital" },
-];
-
-export const faqs = [
+// Static English fallback for SEO/schema.org at module-load time
+export const faqsEN: FaqItem[] = [
   { q: "What areas do you serve?", a: "We primarily serve Tiruchirappalli (Trichy) and surrounding areas in Tamil Nadu, including outstation medical escort across the state." },
   { q: "How do I book a service?", a: "The fastest way is WhatsApp at +91 96554 51299. You can also call +91 94866 42242 or use the booking form on this site." },
   { q: "Can I request wheelchair assistance?", a: "Yes. Wheelchair assistance is available as an add-on for ₹50 and can be requested at the time of booking." },
@@ -76,12 +68,18 @@ export const faqs = [
   { q: "What if my travel schedule changes?", a: "Just message us on WhatsApp — we offer flexible rescheduling subject to helper availability." },
 ];
 
+export const heroSlides = [
+  { src: heroImage, alt: "Exodus Mobility helpers supporting elderly travelers at a Tamil Nadu railway station" },
+  { src: hero2, alt: "Exodus Mobility assistant helping elderly women board a bus in Tamil Nadu" },
+  { src: hero3, alt: "Exodus Mobility medical escort accompanying an elderly patient at a hospital" },
+];
+
 export const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/how-it-works", label: "How It Works" },
-  { to: "/booking", label: "Booking" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", key: "home" },
+  { to: "/about", key: "about" },
+  { to: "/services", key: "services" },
+  { to: "/how-it-works", key: "how" },
+  { to: "/booking", key: "booking" },
+  { to: "/faq", key: "faq" },
+  { to: "/contact", key: "contact" },
 ] as const;

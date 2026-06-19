@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useTranslation } from "react-i18next";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
-import { services, addons } from "@/lib/site-data";
+import { useSiteData } from "@/lib/site-data";
 import { waLink } from "@/components/FloatingActions";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Pricing — TN45 Tamilnadu Travel Company" },
+      { title: "Services & Pricing — Exodus Mobility Co" },
       { name: "description", content: "Transparent prices for railway/bus station assistance, hospital visits, festival support, elderly travel and outstation medical escort in Trichy." },
-      { property: "og:title", content: "Services & Pricing — TN45" },
+      { property: "og:title", content: "Services & Pricing — Exodus Mobility Co" },
       { property: "og:description", content: "Travel assistance services starting at ₹200 in Tiruchirappalli." },
     ],
   }),
@@ -18,10 +19,12 @@ export const Route = createFileRoute("/services")({
 });
 
 function ServicesPage() {
+  const { t } = useTranslation();
+  const { services, addons } = useSiteData();
   return (
     <PageShell>
-      <PageHero eyebrow="Services & Pricing" title="Travel Assistance, Priced Honestly">
-        Transparent pricing across all assistance services. Add-ons available on request.
+      <PageHero eyebrow={t("services.eyebrow") as string} title={t("services.title") as string}>
+        {t("services.sub")}
       </PageHero>
 
       <section className="bg-gradient-cream py-16 sm:py-24">
@@ -38,7 +41,7 @@ function ServicesPage() {
                     height={600}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute left-3 top-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-secondary text-secondary-foreground shadow-yellow">
+                  <div className="absolute left-3 top-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-secondary text-secondary-foreground shadow-card">
                     <s.icon className="h-5 w-5" />
                   </div>
                   <div className="absolute right-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-navy">
@@ -50,10 +53,10 @@ function ServicesPage() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                     <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{s.duration}</div>
-                    <a href={waLink(`HELP — Hi TN45, I'd like to book: ${s.name} (${s.price}).`)}
+                    <a href={waLink(`HELP — Hi Exodus Mobility Co, I'd like to book: ${s.name} (${s.price}).`)}
                        target="_blank" rel="noopener noreferrer"
                        className="rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground transition hover:brightness-110">
-                      Book Now
+                      {t("cta.bookNow")}
                     </a>
                   </div>
                 </div>
@@ -63,8 +66,8 @@ function ServicesPage() {
 
           <div className="mt-10 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-lg font-bold text-primary">Add-on Services</h3>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Optional</span>
+              <h3 className="text-lg font-bold text-primary">{t("services.addonsTitle")}</h3>
+              <span className="text-xs uppercase tracking-widest text-muted-foreground">{t("services.optional")}</span>
             </div>
             <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {addons.map((a) => (
@@ -82,7 +85,7 @@ function ServicesPage() {
           </div>
         </div>
       </section>
-      <PageCTA title="Not sure which service fits?" subtitle="Message HELP on WhatsApp — we'll recommend the right option in minutes." />
+      <PageCTA title={t("services.ctaTitle") as string} subtitle={t("services.ctaSub") as string} />
     </PageShell>
   );
 }

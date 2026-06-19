@@ -5,7 +5,7 @@ import { useMenuOpen } from "./menuStore";
 export const WHATSAPP = "919655451299";
 export const PHONE = "+919486642242";
 
-export function waLink(message = "HELP — Hi TN45, I need help booking a travel assistance service.") {
+export function waLink(message = "HELP — Hi Exodus Mobility Co, I need help booking a travel assistance service.") {
   return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
 
@@ -20,7 +20,7 @@ export function FloatingActions() {
     >
       <a
         href={`tel:${PHONE}`}
-        aria-label="Call TN45"
+        aria-label="Call Exodus Mobility Co"
         className="grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-navy transition hover:scale-105"
       >
         <Phone className="h-5 w-5" />
@@ -29,7 +29,7 @@ export function FloatingActions() {
         href={waLink()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp TN45"
+        aria-label="WhatsApp Exodus Mobility Co"
         className="grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-elevated animate-pulse-ring transition hover:scale-105"
       >
         <WhatsAppIcon className="h-7 w-7" />

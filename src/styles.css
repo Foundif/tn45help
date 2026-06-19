@@ -43,53 +43,55 @@
 :root {
   --radius: 0.875rem;
 
-  /* Logo palette: warm yellow plate, navy ink, leafy green, cream backdrop */
-  --background: oklch(0.985 0.025 95);            /* warm cream */
-  --foreground: oklch(0.22 0.07 260);             /* deep navy ink */
+  /* Exodus Mobility Co palette: deep navy (mercy/blue), warm red (location pin),
+     yellow accent (பக்தி/devotion), white surfaces. */
+  --background: oklch(0.99 0.005 250);            /* near-white */
+  --foreground: oklch(0.22 0.10 268);             /* deep navy ink */
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.07 260);
+  --card-foreground: oklch(0.22 0.10 268);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.07 260);
+  --popover-foreground: oklch(0.22 0.10 268);
 
-  /* Navy = primary (text on yellow) */
-  --primary: oklch(0.24 0.08 260);
-  --primary-foreground: oklch(0.99 0.02 95);
+  /* Navy = primary — mercy */
+  --primary: oklch(0.24 0.13 268);
+  --primary-foreground: oklch(0.99 0.01 250);
 
-  /* Plate yellow */
-  --secondary: oklch(0.89 0.17 92);
-  --secondary-foreground: oklch(0.22 0.07 260);
+  /* Red from the location pin */
+  --secondary: oklch(0.62 0.22 25);
+  --secondary-foreground: oklch(0.99 0.01 250);
 
-  --muted: oklch(0.955 0.03 92);
-  --muted-foreground: oklch(0.45 0.04 260);
+  --muted: oklch(0.96 0.012 260);
+  --muted-foreground: oklch(0.45 0.04 268);
 
-  --accent: oklch(0.89 0.17 92);
-  --accent-foreground: oklch(0.22 0.07 260);
+  /* Yellow = பக்தி (devotion) */
+  --accent: oklch(0.88 0.16 92);
+  --accent-foreground: oklch(0.22 0.10 268);
 
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
 
-  --border: oklch(0.88 0.04 88);
-  --input: oklch(0.88 0.04 88);
-  --ring: oklch(0.24 0.08 260);
+  --border: oklch(0.91 0.012 260);
+  --input: oklch(0.91 0.012 260);
+  --ring: oklch(0.24 0.13 268);
 
   --whatsapp: oklch(0.66 0.17 145);
   --whatsapp-foreground: oklch(0.99 0 0);
 
-  /* Leafy green from the palm icon */
-  --leaf: oklch(0.5 0.12 150);
+  /* Legacy token kept for any leftover references */
+  --leaf: oklch(0.62 0.22 25);
   --leaf-foreground: oklch(0.99 0 0);
 
   /* Brand effects */
-  --gradient-hero: linear-gradient(160deg, oklch(0.95 0.10 95) 0%, oklch(0.89 0.17 92) 55%, oklch(0.82 0.18 85) 100%);
-  --gradient-plate: linear-gradient(135deg, oklch(0.92 0.17 95) 0%, oklch(0.84 0.18 82) 100%);
-  --gradient-radial: radial-gradient(circle at 80% 10%, oklch(0.24 0.08 260 / 0.10), transparent 55%);
-  --gradient-cream: linear-gradient(180deg, oklch(0.985 0.025 95) 0%, oklch(0.97 0.05 92) 100%);
+  --gradient-hero: linear-gradient(160deg, oklch(0.99 0.005 250) 0%, oklch(0.95 0.03 260) 55%, oklch(0.90 0.06 268) 100%);
+  --gradient-plate: linear-gradient(135deg, oklch(0.24 0.13 268) 0%, oklch(0.32 0.14 268) 100%);
+  --gradient-radial: radial-gradient(circle at 80% 10%, oklch(0.62 0.22 25 / 0.10), transparent 55%);
+  --gradient-cream: linear-gradient(180deg, oklch(0.99 0.005 250) 0%, oklch(0.96 0.012 260) 100%);
 
-  --shadow-card: 0 6px 28px -10px oklch(0.22 0.07 260 / 0.18);
-  --shadow-elevated: 0 24px 60px -22px oklch(0.22 0.07 260 / 0.32);
-  --shadow-yellow: 0 14px 32px -10px oklch(0.84 0.18 82 / 0.55);
-  --shadow-navy: 0 14px 32px -10px oklch(0.22 0.07 260 / 0.45);
+  --shadow-card: 0 6px 28px -10px oklch(0.22 0.10 268 / 0.20);
+  --shadow-elevated: 0 24px 60px -22px oklch(0.22 0.10 268 / 0.35);
+  --shadow-yellow: 0 14px 32px -10px oklch(0.88 0.16 92 / 0.55);
+  --shadow-navy: 0 14px 32px -10px oklch(0.22 0.10 268 / 0.50);
 }
 
 @layer base {
