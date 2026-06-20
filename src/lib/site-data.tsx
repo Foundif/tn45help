@@ -41,10 +41,9 @@ export type FaqItem = { q: string; a: string };
 
 import i18nInstance from "@/lib/i18n";
 
-function arr<T>(t: (k: string, o?: unknown) => unknown, key: string): T[] {
-  const v = t(key, { returnObjects: true });
+function arr<T>(key: string, lng?: string): T[] {
+  const v = i18nInstance.t(key, { returnObjects: true, lng });
   if (Array.isArray(v)) return v as T[];
-  // Fallback: read directly from the English resource bundle.
   const fallback = i18nInstance.getResource("en", "translation", key);
   return Array.isArray(fallback) ? (fallback as T[]) : [];
 }
