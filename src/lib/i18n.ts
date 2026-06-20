@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 const en = {
-  brand: { name: "Exodus Mobility Co", tagline: "go as you wish", city: "Trichy · Tamil Nadu" },
+  brand: { name: "TN45 Travel Company", tagline: "go as you wish", city: "Trichy · Tamil Nadu", subBrandLabel: "A unit of", subBrand: "Exodus Mobility Co" },
   nav: {
     home: "Home", about: "About", services: "Services",
     how: "How It Works", booking: "Booking", faq: "FAQ", contact: "Contact",
@@ -33,11 +33,11 @@ const en = {
     ctaSub: 'Send "HELP" on WhatsApp and we\'ll guide you instantly.',
   },
   about: {
-    eyebrow: "About Us", title: "About Exodus Mobility Co",
+    eyebrow: "About Us", title: "About TN45 Travel Company",
     sub: "Trichy-based travel assistance for families, senior citizens, patients and busy travelers — backed by a team that genuinely cares.",
     storyEyebrow: "Our Story",
     storyTitle: "A family helping Trichy travel with confidence",
-    p1: "Exodus Mobility Co started with a simple promise — no senior, patient, or busy traveler should ever feel stranded at a station, hospital or temple.",
+    p1: "TN45 Travel Company — powered by Exodus Mobility Co — started with a simple promise — no senior, patient, or busy traveler should ever feel stranded at a station, hospital or temple.",
     p2: "What began as informal help for neighbours in Mannarpuram is today a trusted local team handling 1000+ trips a year — from short station drops to multi-day outstation medical escorts across Tamil Nadu.",
     p3: "Every helper is briefed before the trip, every booking is tracked over WhatsApp, and every family gets a real human on the other end of the line.",
     missionLabel: "Our Mission",
@@ -135,7 +135,7 @@ const en = {
     ],
   },
   contact: {
-    eyebrow: "Contact", title: "Reach Exodus Mobility Co",
+    eyebrow: "Contact", title: "Reach TN45 Travel Company",
     sub: "We respond fastest on WhatsApp. Drop in, call, or message us anytime — 24/7 inquiry support.",
     address: "Address", whatsapp: "WhatsApp", phone: "Phone", hours: "Hours",
     addressFull: "Race Course Road, 18 Richard Building, Mannarpuram, Trichy East, Tiruchirappalli, Tamil Nadu 620023",
@@ -148,7 +148,7 @@ const en = {
     quick: "Quick Links", get: "Get in Touch",
     waLabel: "WhatsApp: +91 96554 51299", phoneLabel: "Phone: +91 94866 42242",
     addr1: "Mannarpuram, Trichy East", addr2: "Tamil Nadu 620023",
-    copyright: "© 2026 Exodus Mobility Co. All Rights Reserved.",
+    copyright: "© 2026 TN45 Travel Company · A unit of Exodus Mobility Co. All Rights Reserved.",
   },
   notfound: {
     title: "Looks like you took a wrong turn",
@@ -172,7 +172,7 @@ const en = {
 };
 
 const ta: typeof en = {
-  brand: { name: "எக்ஸோடஸ் மொபிலிட்டி கோ", tagline: "உங்கள் விருப்பப்படி பயணியுங்கள்", city: "திருச்சி · தமிழ்நாடு" },
+  brand: { name: "TN45 டிராவல் கம்பெனி", tagline: "உங்கள் விருப்பப்படி பயணியுங்கள்", city: "திருச்சி · தமிழ்நாடு", subBrandLabel: "ஒரு பிரிவு", subBrand: "எக்ஸோடஸ் மொபிலிட்டி கோ" },
   nav: {
     home: "முகப்பு", about: "எங்களைப் பற்றி", services: "சேவைகள்",
     how: "எப்படி வேலை செய்கிறது", booking: "முன்பதிவு", faq: "கேள்விகள்", contact: "தொடர்பு",
@@ -203,11 +203,11 @@ const ta: typeof en = {
     ctaSub: 'WhatsApp இல் "HELP" அனுப்புங்கள், உடனடியாக வழிகாட்டுவோம்.',
   },
   about: {
-    eyebrow: "எங்களைப் பற்றி", title: "எக்ஸோடஸ் மொபிலிட்டி கோ பற்றி",
+    eyebrow: "எங்களைப் பற்றி", title: "TN45 டிராவல் கம்பெனி பற்றி",
     sub: "திருச்சியில் இயங்கும், குடும்பங்கள், மூத்த குடிமக்கள், நோயாளிகள் மற்றும் பரபரப்பான பயணிகளுக்கான பயண உதவி — உண்மையாகவே கவலைப்படும் குழுவால் நடத்தப்படுகிறது.",
     storyEyebrow: "எங்கள் கதை",
     storyTitle: "திருச்சியை நம்பிக்கையுடன் பயணிக்க உதவும் ஒரு குடும்பம்",
-    p1: "எக்ஸோடஸ் மொபிலிட்டி கோ ஒரு எளிய வாக்குறுதியுடன் தொடங்கியது — எந்த மூத்தவரும், நோயாளியும், பயணியும் ஒரு நிலையம், மருத்துவமனை அல்லது கோவிலில் தனிமையில் விடப்படக்கூடாது.",
+    p1: "TN45 டிராவல் கம்பெனி — எக்ஸோடஸ் மொபிலிட்டி கோவின் ஒரு பிரிவு — ஒரு எளிய வாக்குறுதியுடன் தொடங்கியது — எந்த மூத்தவரும், நோயாளியும், பயணியும் ஒரு நிலையம், மருத்துவமனை அல்லது கோவிலில் தனிமையில் விடப்படக்கூடாது.",
     p2: "மன்னார்புரத்தில் அண்டை வீட்டாருக்கான உதவியாக தொடங்கியது இன்று ஆண்டுக்கு 1000+ பயணங்களை கையாளும் நம்பகமான உள்ளூர் குழுவாக மாறியுள்ளது.",
     p3: "ஒவ்வொரு உதவியாளரும் பயணத்திற்கு முன் தயார்படுத்தப்படுகிறார், ஒவ்வொரு முன்பதிவும் WhatsApp இல் கண்காணிக்கப்படுகிறது.",
     missionLabel: "எங்கள் நோக்கம்",
@@ -305,7 +305,7 @@ const ta: typeof en = {
     ],
   },
   contact: {
-    eyebrow: "தொடர்பு", title: "எக்ஸோடஸ் மொபிலிட்டி கோ ஐ அணுகுங்கள்",
+    eyebrow: "தொடர்பு", title: "TN45 டிராவல் கம்பெனியை அணுகுங்கள்",
     sub: "WhatsApp இல் விரைவாக பதிலளிக்கிறோம். எப்போது வேண்டுமானாலும் வாருங்கள், அழைக்கவும் — 24/7.",
     address: "முகவரி", whatsapp: "WhatsApp", phone: "தொலைபேசி", hours: "நேரம்",
     addressFull: "ரேஸ் கோர்ஸ் சாலை, 18 ரிச்சர்ட் கட்டிடம், மன்னார்புரம், திருச்சி கிழக்கு, திருச்சிராப்பள்ளி, தமிழ்நாடு 620023",
@@ -318,7 +318,7 @@ const ta: typeof en = {
     quick: "விரைவு இணைப்புகள்", get: "தொடர்பு கொள்ள",
     waLabel: "WhatsApp: +91 96554 51299", phoneLabel: "தொலைபேசி: +91 94866 42242",
     addr1: "மன்னார்புரம், திருச்சி கிழக்கு", addr2: "தமிழ்நாடு 620023",
-    copyright: "© 2026 எக்ஸோடஸ் மொபிலிட்டி கோ. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+    copyright: "© 2026 TN45 டிராவல் கம்பெனி · எக்ஸோடஸ் மொபிலிட்டி கோவின் ஒரு பிரிவு. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
   },
   notfound: {
     title: "தவறான திசையில் சென்றுவிட்டீர்கள் போல உள்ளது",

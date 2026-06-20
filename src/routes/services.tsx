@@ -9,9 +9,9 @@ import { waLink } from "@/components/FloatingActions";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services & Pricing — Exodus Mobility Co" },
+      { title: "Services & Pricing — TN45 Travel Company" },
       { name: "description", content: "Transparent prices for railway/bus station assistance, hospital visits, festival support, elderly travel and outstation medical escort in Trichy." },
-      { property: "og:title", content: "Services & Pricing — Exodus Mobility Co" },
+      { property: "og:title", content: "Services & Pricing — TN45 Travel Company" },
       { property: "og:description", content: "Travel assistance services starting at ₹200 in Tiruchirappalli." },
     ],
   }),
@@ -53,7 +53,7 @@ function ServicesPage() {
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
                     <div className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{s.duration}</div>
-                    <a href={waLink(`HELP — Hi Exodus Mobility Co, I'd like to book: ${s.name} (${s.price}).`)}
+                    <a href={waLink(`HELP — Hi TN45 Travel Company, I'd like to book: ${s.name} (${s.price}).`)}
                        target="_blank" rel="noopener noreferrer"
                        className="rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground transition hover:brightness-110">
                       {t("cta.bookNow")}

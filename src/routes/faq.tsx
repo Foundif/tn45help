@@ -11,9 +11,9 @@ import faqImg from "@/assets/faq-illo.jpg";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Exodus Mobility Co" },
-      { name: "description", content: "Answers to common questions about Exodus Mobility Co travel assistance services in Trichy." },
-      { property: "og:title", content: "FAQ — Exodus Mobility Co" },
+      { title: "FAQ — TN45 Travel Company" },
+      { name: "description", content: "Answers to common questions about TN45 Travel Company travel assistance services in Trichy." },
+      { property: "og:title", content: "FAQ — TN45 Travel Company" },
       { property: "og:description", content: "Common questions about booking, pricing and services." },
     ],
     scripts: [

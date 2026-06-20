@@ -21,7 +21,7 @@ export function BookingForm() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const lines = [
-      "HELP — New Booking Request (Exodus Mobility Co)",
+      "HELP — New Booking Request (TN45 Travel Company)",
       "",
       `Name: ${form.name}`,
       `Mobile: ${form.mobile}`,
