@@ -49,13 +49,15 @@ function arr<T>(key: string, lng?: string): T[] {
 }
 
 export function useSiteData() {
-  const { t } = useTranslation();
-  const items = arr<{ name: string; desc: string; duration: string }>(t, "services.items");
-  const addons = arr<{ name: string; price: string }>(t, "services.addons");
-  const whys = arr<string>(t, "why");
-  const steps = arr<StepItem>(t, "steps");
-  const testimonials = arr<Testimonial>(t, "testimonials");
-  const faqs = arr<FaqItem>(t, "faq.items");
+  const { i18n } = useTranslation();
+  const lng = i18n.language;
+  const items = arr<{ name: string; desc: string; duration: string }>("services.items", lng);
+  const addons = arr<{ name: string; price: string }>("services.addons", lng);
+  const whys = arr<string>("why", lng);
+  const steps = arr<StepItem>("steps", lng);
+  const testimonials = arr<Testimonial>("testimonials", lng);
+  const faqs = arr<FaqItem>("faq.items", lng);
+
 
   return {
     services: items.map((it, i) => ({ ...it, ...SERVICE_META[i] })) as ServiceItem[],
