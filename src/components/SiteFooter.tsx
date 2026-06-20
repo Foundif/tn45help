@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/exodus-logo.png.asset.json";
+import logo from "@/assets/tn45-logo.png.asset.json";
+import subLogo from "@/assets/exodus-logo.png.asset.json";
 import { waLink, PHONE } from "./FloatingActions";
 import { navLinks } from "@/lib/site-data";
 
@@ -11,8 +12,15 @@ export function SiteFooter() {
     <footer className="bg-primary py-12 text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-4">
         <div className="md:col-span-2">
-          <img src={logo.url} alt={brand} className="h-16 w-auto rounded-md" />
+          <img src={logo.url} alt={brand} className="h-16 w-auto rounded-md bg-white p-1" />
           <p className="mt-4 max-w-md text-sm text-primary-foreground/75">{t("footer.desc")}</p>
+          <div className="mt-5 flex items-center gap-3 rounded-xl bg-primary-foreground/5 p-3 max-w-sm">
+            <img src={subLogo.url} alt={t("brand.subBrand") as string} className="h-10 w-auto rounded bg-white/90 p-1" />
+            <div className="text-xs text-primary-foreground/80">
+              <div className="font-semibold text-secondary">{t("brand.subBrandLabel")}</div>
+              <div>{t("brand.subBrand")} — {t("brand.tagline")}</div>
+            </div>
+          </div>
         </div>
         <div>
           <div className="text-sm font-bold uppercase tracking-widest text-secondary">{t("footer.quick")}</div>

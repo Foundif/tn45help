@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
-import logo from "@/assets/exodus-logo.png.asset.json";
+import logo from "@/assets/tn45-logo.png.asset.json";
 import { waLink, PHONE } from "./FloatingActions";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { setMenuOpen } from "./menuStore";
@@ -46,12 +46,16 @@ export function SiteHeader() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
-          <Link to="/" aria-label={brand} className="flex shrink-0 items-center">
+          <Link to="/" aria-label={brand} className="flex shrink-0 items-center gap-2">
             <img
               src={logo.url}
               alt={brand}
-              className="h-12 w-auto rounded-lg bg-primary p-1 shadow-card sm:h-14"
+              className="h-12 w-auto sm:h-14"
             />
+            <span className="hidden sm:flex flex-col leading-tight">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t("brand.subBrandLabel")}</span>
+              <span className="text-xs font-bold text-secondary">{t("brand.subBrand")}</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -118,12 +122,18 @@ export function SiteHeader() {
               closing ? "animate-slide-out" : "animate-slide-in"
             }`}
           >
-            <div className="flex items-center justify-between border-b border-border bg-primary px-5 py-4">
-              <img src={logo.url} alt={brand} className="h-12 w-auto rounded-md bg-primary p-1 shadow-card" />
+            <div className="flex items-center justify-between border-b border-border bg-card px-5 py-4">
+              <div className="flex items-center gap-2">
+                <img src={logo.url} alt={brand} className="h-12 w-auto" />
+                <div className="flex flex-col leading-tight">
+                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t("brand.subBrandLabel")}</span>
+                  <span className="text-xs font-bold text-secondary">{t("brand.subBrand")}</span>
+                </div>
+              </div>
               <button
                 onClick={closeDrawer}
                 aria-label="Close"
-                className="grid h-10 w-10 place-items-center rounded-full bg-secondary text-secondary-foreground transition hover:brightness-110"
+                className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground transition hover:brightness-110"
               >
                 <X className="h-5 w-5" />
               </button>
