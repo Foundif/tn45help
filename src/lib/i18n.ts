@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 const en = {
-  brand: { name: "Exodus Mobility Co", tagline: "go as you wish", city: "Trichy · Tamil Nadu" },
+  brand: { name: "TN45 Travel Company", tagline: "go as you wish", city: "Trichy · Tamil Nadu", subBrandLabel: "A unit of", subBrand: "Exodus Mobility Co" },
   nav: {
     home: "Home", about: "About", services: "Services",
     how: "How It Works", booking: "Booking", faq: "FAQ", contact: "Contact",
@@ -172,7 +172,7 @@ const en = {
 };
 
 const ta: typeof en = {
-  brand: { name: "எக்ஸோடஸ் மொபிலிட்டி கோ", tagline: "உங்கள் விருப்பப்படி பயணியுங்கள்", city: "திருச்சி · தமிழ்நாடு" },
+  brand: { name: "TN45 டிராவல் கம்பெனி", tagline: "உங்கள் விருப்பப்படி பயணியுங்கள்", city: "திருச்சி · தமிழ்நாடு", subBrandLabel: "ஒரு பிரிவு", subBrand: "எக்ஸோடஸ் மொபிலிட்டி கோ" },
   nav: {
     home: "முகப்பு", about: "எங்களைப் பற்றி", services: "சேவைகள்",
     how: "எப்படி வேலை செய்கிறது", booking: "முன்பதிவு", faq: "கேள்விகள்", contact: "தொடர்பு",
