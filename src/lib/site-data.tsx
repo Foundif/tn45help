@@ -39,14 +39,24 @@ export type StepItem = { t: string; d: string };
 export type Testimonial = { n: string; c: string; q: string };
 export type FaqItem = { q: string; a: string };
 
+import i18nInstance from "@/lib/i18n";
+
+function arr<T>(t: (k: string, o?: unknown) => unknown, key: string): T[] {
+  const v = t(key, { returnObjects: true });
+  if (Array.isArray(v)) return v as T[];
+  // Fallback: read directly from the English resource bundle.
+  const fallback = i18nInstance.getResource("en", "translation", key);
+  return Array.isArray(fallback) ? (fallback as T[]) : [];
+}
+
 export function useSiteData() {
   const { t } = useTranslation();
-  const items = t("services.items", { returnObjects: true }) as Array<{ name: string; desc: string; duration: string }>;
-  const addons = t("services.addons", { returnObjects: true }) as Array<{ name: string; price: string }>;
-  const whys = t("why", { returnObjects: true }) as string[];
-  const steps = t("steps", { returnObjects: true }) as StepItem[];
-  const testimonials = t("testimonials", { returnObjects: true }) as Testimonial[];
-  const faqs = t("faq.items", { returnObjects: true }) as FaqItem[];
+  const items = arr<{ name: string; desc: string; duration: string }>(t, "services.items");
+  const addons = arr<{ name: string; price: string }>(t, "services.addons");
+  const whys = arr<string>(t, "why");
+  const steps = arr<StepItem>(t, "steps");
+  const testimonials = arr<Testimonial>(t, "testimonials");
+  const faqs = arr<FaqItem>(t, "faq.items");
 
   return {
     services: items.map((it, i) => ({ ...it, ...SERVICE_META[i] })) as ServiceItem[],
