@@ -12,9 +12,9 @@ import bookingImg from "@/assets/booking-hero.jpg";
 export const Route = createFileRoute("/booking")({
   head: () => ({
     meta: [
-      { title: "Book Travel Assistance — Exodus Mobility Co" },
-      { name: "description", content: "Book railway, bus, hospital, festival or outstation medical escort assistance with Exodus Mobility Co." },
-      { property: "og:title", content: "Book with Exodus Mobility Co" },
+      { title: "Book Travel Assistance — TN45 Travel Company" },
+      { name: "description", content: "Book railway, bus, hospital, festival or outstation medical escort assistance with TN45 Travel Company." },
+      { property: "og:title", content: "Book with TN45 Travel Company" },
       { property: "og:description", content: "Send your trip details via WhatsApp in seconds." },
     ],
   }),

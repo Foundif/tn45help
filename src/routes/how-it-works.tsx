@@ -9,9 +9,9 @@ import hiwImg from "@/assets/how-it-works.jpg";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How It Works — Book with Exodus Mobility Co" },
-      { name: "description", content: "Booking travel assistance with Exodus Mobility Co in Trichy is simple — choose a service, share details, confirm on WhatsApp and we handle the rest." },
-      { property: "og:title", content: "How It Works — Exodus Mobility Co" },
+      { title: "How It Works — Book with TN45 Travel Company" },
+      { name: "description", content: "Booking travel assistance with TN45 Travel Company in Trichy is simple — choose a service, share details, confirm on WhatsApp and we handle the rest." },
+      { property: "og:title", content: "How It Works — TN45 Travel Company" },
       { property: "og:description", content: "Five simple steps to book reliable travel assistance in Trichy." },
     ],
   }),

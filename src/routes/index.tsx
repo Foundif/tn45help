@@ -13,9 +13,9 @@ import { heroSlides, useSiteData } from "@/lib/site-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Exodus Mobility Co — Trichy Travel Assistance" },
+      { title: "TN45 Travel Company — Trichy Travel Assistance" },
       { name: "description", content: "Trusted travel, railway & bus station, hospital visit, elderly support and medical escort assistance in Tiruchirappalli, Tamil Nadu. Book on WhatsApp." },
-      { property: "og:title", content: "Exodus Mobility Co — Trichy" },
+      { property: "og:title", content: "TN45 Travel Company — Trichy" },
       { property: "og:description", content: "Reliable travel assistance & medical escort services in Tiruchirappalli." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          name: "Exodus Mobility Co",
+          name: "TN45 Travel Company",
           telephone: "+919486642242",
           address: {
             "@type": "PostalAddress",

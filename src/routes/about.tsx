@@ -9,9 +9,9 @@ import aboutImg from "@/assets/about-team.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Exodus Mobility Co — Trichy" },
-      { name: "description", content: "Learn about Exodus Mobility Co — trusted travel, station, hospital and elderly assistance based in Tiruchirappalli, Tamil Nadu." },
-      { property: "og:title", content: "About Exodus Mobility Co" },
+      { title: "About TN45 Travel Company — Trichy" },
+      { name: "description", content: "Learn about TN45 Travel Company — trusted travel, station, hospital and elderly assistance based in Tiruchirappalli, Tamil Nadu." },
+      { property: "og:title", content: "About TN45 Travel Company" },
       { property: "og:description", content: "Trusted travel assistance team based in Tiruchirappalli." },
     ],
   }),

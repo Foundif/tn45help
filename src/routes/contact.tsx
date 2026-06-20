@@ -12,10 +12,10 @@ import supportImg from "@/assets/contact-support.jpg";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Exodus Mobility Co, Trichy" },
-      { name: "description", content: "Reach Exodus Mobility Co in Trichy via WhatsApp, phone, or visit our Mannarpuram office. 24/7 inquiry support." },
-      { property: "og:title", content: "Contact — Exodus Mobility Co" },
-      { property: "og:description", content: "WhatsApp, phone and address for Exodus Mobility Co, Trichy." },
+      { title: "Contact — TN45 Travel Company, Trichy" },
+      { name: "description", content: "Reach TN45 Travel Company in Trichy via WhatsApp, phone, or visit our Mannarpuram office. 24/7 inquiry support." },
+      { property: "og:title", content: "Contact — TN45 Travel Company" },
+      { property: "og:description", content: "WhatsApp, phone and address for TN45 Travel Company, Trichy." },
     ],
   }),
   component: ContactPage,
@@ -57,7 +57,7 @@ function ContactPage() {
           </div>
           <div className="overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-elevated">
             <iframe
-              title="Exodus Mobility Co Location"
+              title="TN45 Travel Company Location"
               src="https://www.google.com/maps?q=Mannarpuram,+Tiruchirappalli,+Tamil+Nadu+620023&output=embed"
               className="h-full min-h-[500px] w-full"
               loading="lazy"
