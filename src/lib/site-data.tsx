@@ -4,16 +4,27 @@ import {
   Clock, Users, Accessibility, Sparkles,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import heroImage from "@/assets/hero-illustration.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import svcStation from "@/assets/svc-station-assist.jpg";
-import svcHome from "@/assets/svc-home-to-station.jpg";
-import svcToHome from "@/assets/svc-station-to-home.jpg";
-import svcFestHalf from "@/assets/svc-festival-half.jpg";
-import svcFestFull from "@/assets/svc-festival-full.jpg";
-import svcHospital from "@/assets/svc-hospital.jpg";
-import svcOutstation from "@/assets/svc-outstation.jpg";
+import heroImageAsset from "@/assets/hero-illustration.jpg.asset.json";
+import hero2Asset from "@/assets/hero-2.jpg.asset.json";
+import hero3Asset from "@/assets/hero-3.jpg.asset.json";
+import svcStationAsset from "@/assets/svc-station-assist.jpg.asset.json";
+import svcHomeAsset from "@/assets/svc-home-to-station.jpg.asset.json";
+import svcToHomeAsset from "@/assets/svc-station-to-home.jpg.asset.json";
+import svcFestHalfAsset from "@/assets/svc-festival-half.jpg.asset.json";
+import svcFestFullAsset from "@/assets/svc-festival-full.jpg.asset.json";
+import svcHospitalAsset from "@/assets/svc-hospital.jpg.asset.json";
+import svcOutstationAsset from "@/assets/svc-outstation.jpg.asset.json";
+
+const heroImage = heroImageAsset.url;
+const hero2 = hero2Asset.url;
+const hero3 = hero3Asset.url;
+const svcStation = svcStationAsset.url;
+const svcHome = svcHomeAsset.url;
+const svcToHome = svcToHomeAsset.url;
+const svcFestHalf = svcFestHalfAsset.url;
+const svcFestFull = svcFestFullAsset.url;
+const svcHospital = svcHospitalAsset.url;
+const svcOutstation = svcOutstationAsset.url;
 
 const SERVICE_META = [
   { icon: Train, image: svcStation, price: "₹200" },
