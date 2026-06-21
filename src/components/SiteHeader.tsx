@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
-import logo from "@/assets/tn45-logo.png.asset.json";
+import logo from "@/assets/tn45-logo.png";
 import { waLink, PHONE } from "./FloatingActions";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { setMenuOpen } from "./menuStore";
