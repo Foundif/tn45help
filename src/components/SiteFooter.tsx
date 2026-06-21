@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/tn45-logo.png.asset.json";
-import subLogo from "@/assets/exodus-logo.png.asset.json";
+import logo from "@/assets/tn45-logo.png";
+import subLogo from "@/assets/exodus-logo.png";
 import { waLink, PHONE } from "./FloatingActions";
 import { navLinks } from "@/lib/site-data";
 
