@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { PageCTA } from "@/components/PageCTA";
+import { ImageCarousel } from "@/components/ImageCarousel";
 import { useSiteData } from "@/lib/site-data";
 import { waLink } from "@/components/FloatingActions";
 
@@ -33,18 +34,11 @@ function ServicesPage() {
             {services.map((s) => (
               <article key={s.name} className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition hover:-translate-y-1 hover:shadow-elevated">
                 <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                  <img
-                    src={s.image}
-                    alt={s.name}
-                    loading="lazy"
-                    width={800}
-                    height={600}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute left-3 top-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-secondary text-secondary-foreground shadow-card">
+                  <ImageCarousel images={s.images} alt={s.name} />
+                  <div className="absolute left-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-2xl bg-secondary text-secondary-foreground shadow-card">
                     <s.icon className="h-5 w-5" />
                   </div>
-                  <div className="absolute right-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-navy">
+                  <div className="absolute right-3 top-3 z-10 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground shadow-navy">
                     {s.price}
                   </div>
                 </div>
