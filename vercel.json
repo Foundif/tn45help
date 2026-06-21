@@ -1,8 +1,11 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "vite build",
+  "installCommand": "bun install",
+  "framework": null,
+  "build": {
+    "env": {
+      "NITRO_PRESET": "vercel"
     }
-  ]
+  }
 }
