@@ -52,10 +52,6 @@ export function SiteHeader() {
               alt={brand}
               className="h-12 w-auto sm:h-14"
             />
-            <span className="hidden sm:flex flex-col leading-tight">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t("brand.subBrandLabel")}</span>
-              <span className="text-xs font-bold text-secondary">{t("brand.subBrand")}</span>
-            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -82,21 +78,6 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-2">
             <LanguageSwitcher compact />
-            <a
-              href={`tel:${PHONE}`}
-              aria-label="Call"
-              className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary/15 bg-card px-4 py-2 text-sm font-semibold text-primary hover:bg-muted transition"
-            >
-              <Phone className="h-4 w-4" /> {t("cta.callNow")}
-            </a>
-            <a
-              href={waLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 rounded-full bg-whatsapp px-5 py-2 text-sm font-bold text-whatsapp-foreground shadow-card hover:brightness-110 transition"
-            >
-              <WhatsAppIcon className="h-4 w-4" /> {t("cta.bookNow")}
-            </a>
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
@@ -123,13 +104,7 @@ export function SiteHeader() {
             }`}
           >
             <div className="flex items-center justify-between border-b border-border bg-card px-5 py-4">
-              <div className="flex items-center gap-2">
-                <img src={logo.url} alt={brand} className="h-12 w-auto" />
-                <div className="flex flex-col leading-tight">
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t("brand.subBrandLabel")}</span>
-                  <span className="text-xs font-bold text-secondary">{t("brand.subBrand")}</span>
-                </div>
-              </div>
+              <img src={logo.url} alt={brand} className="h-12 w-auto" />
               <button
                 onClick={closeDrawer}
                 aria-label="Close"

@@ -21,7 +21,7 @@ export function FloatingActions() {
       <a
         href={`tel:${PHONE}`}
         aria-label="Call TN45 Travel Company"
-        className="grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-navy transition hover:scale-105"
+        className="grid h-12 w-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-navy ring-2 ring-white/90 transition hover:scale-105"
       >
         <Phone className="h-5 w-5" />
       </a>
@@ -30,7 +30,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp TN45 Travel Company"
-        className="grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-elevated animate-pulse-ring transition hover:scale-105"
+        className="grid h-14 w-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-elevated ring-2 ring-white/90 animate-pulse-ring transition hover:scale-105"
       >
         <WhatsAppIcon className="h-7 w-7" />
       </a>
